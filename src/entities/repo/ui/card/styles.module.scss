@@ -1,0 +1,20 @@
+.card {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	text-align: left;
+	row-gap: 12px;
+
+	&__name {
+		font-weight: 500;
+		font-size: 24px;
+		color: #0064eb;
+	}
+
+	&__description {
+		font-weight: 400;
+		font-size: 16px;
+		color: #000;
+		width: 90%;
+	}
+}
