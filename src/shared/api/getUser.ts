@@ -15,7 +15,7 @@ const getUser = async ({ query }: { query: string }): Promise<User> => {
     html_url: htmlURL,
     public_repos: publicRepos,
     followers,
-    following
+    following,
   } = await response.json();
   return {
     name,
@@ -24,7 +24,7 @@ const getUser = async ({ query }: { query: string }): Promise<User> => {
     htmlURL,
     publicRepos,
     followers,
-    following
+    following,
   };
 };
 

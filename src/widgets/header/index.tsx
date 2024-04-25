@@ -4,10 +4,10 @@ import { Logo } from "@/shared/ui/logo";
 import { SearchInput } from "@/shared/ui/search-input";
 
 const Header = ({ onSearch }: HeaderProps): JSX.Element => (
-	<>
-		<Logo />
-		<Search as={SearchInput} onSearch={onSearch} />
-	</>
+  <>
+    <Logo />
+    <Search as={SearchInput} onSearch={onSearch} />
+  </>
 );
 
 export { Header };

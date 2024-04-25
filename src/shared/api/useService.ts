@@ -2,14 +2,17 @@ import { useEffect, useState } from "react";
 import type { ServicePayload } from "../types";
 
 const useService = <T>(
-  fetch: ({ query }: { query: string }) => Promise<T>, { query = "" }: { query: string }
+  fetch: ({ query }: { query: string }) => Promise<T>,
+  { query = "" }: { query: string }
 ): ServicePayload<T> => {
   const [loading, setLoading] = useState<boolean>(false);
   const [data, setData] = useState<T | null>(null);
   const [error, setError] = useState<Error | undefined>(undefined);
 
   useEffect(() => {
-    if (loading) { return; }
+    if (loading) {
+      return;
+    }
     if (query.length === 0 && error) {
       setError(undefined);
       setData(null);
@@ -30,7 +33,9 @@ const useService = <T>(
       setError(undefined);
       try {
         const fetchedData = await fetch({ query });
-        if (fetchedData instanceof Error) { throw fetchedData; }
+        if (fetchedData instanceof Error) {
+          throw fetchedData;
+        }
         setData(fetchedData);
       } catch (e) {
         setError(e as Error);
@@ -40,7 +45,9 @@ const useService = <T>(
       }
     };
 
-    if (!loading) { fetchData(); }
+    if (!loading) {
+      fetchData();
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetch, query]);
 
@@ -49,6 +56,6 @@ const useService = <T>(
     error,
     data,
   };
-}
+};
 
 export { useService };

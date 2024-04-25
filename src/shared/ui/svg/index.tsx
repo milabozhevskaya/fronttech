@@ -1,6 +1,6 @@
 const SVGSelector = ({ id }: { id: string }): JSX.Element => {
   switch (id) {
-    case 'logo':
+    case "logo":
       return (
         <svg
           width="41"
@@ -17,7 +17,7 @@ const SVGSelector = ({ id }: { id: string }): JSX.Element => {
           />
         </svg>
       );
-    case 'search':
+    case "search":
       return (
         <svg
           width="14"
@@ -33,7 +33,7 @@ const SVGSelector = ({ id }: { id: string }): JSX.Element => {
           />
         </svg>
       );
-    case 'loading':
+    case "loading":
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +58,7 @@ const SVGSelector = ({ id }: { id: string }): JSX.Element => {
           </g>
         </svg>
       );
-    case 'not-found':
+    case "not-found":
       return (
         <svg
           width="65"
@@ -75,7 +75,7 @@ const SVGSelector = ({ id }: { id: string }): JSX.Element => {
           />
         </svg>
       );
-    case 'followers':
+    case "followers":
       return (
         <svg
           width="25"
@@ -92,7 +92,7 @@ const SVGSelector = ({ id }: { id: string }): JSX.Element => {
           />
         </svg>
       );
-    case 'following':
+    case "following":
       return (
         <svg
           width="25"
@@ -109,7 +109,7 @@ const SVGSelector = ({ id }: { id: string }): JSX.Element => {
           />
         </svg>
       );
-    case 'empty-list':
+    case "empty-list":
       return (
         <svg
           width="76"
@@ -126,7 +126,7 @@ const SVGSelector = ({ id }: { id: string }): JSX.Element => {
           />
         </svg>
       );
-    case 'arrow-left':
+    case "arrow-left":
       return (
         <svg viewBox="0 0 8 12" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -138,7 +138,7 @@ const SVGSelector = ({ id }: { id: string }): JSX.Element => {
           />
         </svg>
       );
-    case 'arrow-right':
+    case "arrow-right":
       return (
         <svg
           width="8"
