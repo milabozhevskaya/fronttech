@@ -4,15 +4,15 @@ import { LoadingPage } from "./loading-page";
 import { NotFoundPage } from "./not-found-page";
 import { EmptyPage } from "./empty-page";
 
-const Page = ({ user, loading, notFound }: PageProps): JSX.Element => {
-  if (loading) {
+const Page = ({ userQuery, user, loading, fetching, notFound }: PageProps) => {
+  if (loading || fetching) {
     return <LoadingPage />;
   }
   if (!loading && notFound && !user) {
     return <NotFoundPage />;
   }
   if (!loading && !notFound && user) {
-    return <UserPage {...user} />;
+    return <UserPage {...user} userQuery={userQuery} />;
   }
   return <EmptyPage />;
 };

@@ -7,8 +7,8 @@ import css from "./styles.module.scss";
 const UserInfo = ({
   name,
   login,
-  avatarURL,
-  htmlURL,
+  avatar_url: avatarURL,
+  html_url: htmlURL,
   followers,
   following,
 }: Exclude<User, "publicRepos">): JSX.Element => (

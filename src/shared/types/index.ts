@@ -1,9 +1,9 @@
 type User = {
   name: string;
   login: string;
-  avatarURL: string;
-  htmlURL: string;
-  publicRepos: number;
+  avatar_url: string;
+  html_url: string;
+  public_repos: number;
   followers: number;
   following: number;
 };
@@ -15,8 +15,18 @@ type Repo = {
   htmlURL: string;
 };
 
+type UserQuery = {
+  user: string;
+};
+
+type ReposQuery = {
+  user: string;
+  perPage: number;
+  page: number;
+};
+
 type RepoListProps = {
-  login: string;
+  userQuery: string;
   quantity: number;
 };
 
@@ -27,20 +37,30 @@ type UserContextType<T> = {
 };
 
 type PageProps = {
-  user: User | null;
+  user: User | undefined;
+  userQuery: string;
   loading: boolean;
+  fetching: boolean;
   notFound: boolean;
 };
 
 type ServicePayload<T> = {
-  loading: boolean;
-  error: Error | undefined;
-  data: T | null;
+  isLoading: boolean;
+  isFetching: boolean;
+  error: Error | null;
+  data: T | undefined;
 };
 
 type HeaderProps = {
   onSearch: (value: string) => void;
 };
+
+type ServiceQuery<T> = T extends User
+  ? UserQuery
+  : T extends Array<Repo>
+    ? ReposQuery
+    : ReposQuery;
+// : Record<string, string>;
 
 export type {
   User,
@@ -50,4 +70,7 @@ export type {
   PageProps,
   HeaderProps,
   ServicePayload,
+  UserQuery,
+  ReposQuery,
+  ServiceQuery,
 };

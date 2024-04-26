@@ -2,10 +2,10 @@ import type { RepoListProps } from "@/shared/types";
 import { List } from "./ui/list";
 import { EmptyList } from "./ui/empty-list";
 
-const RepoList = ({ login, quantity }: RepoListProps): JSX.Element => (
+const RepoList = ({ userQuery, quantity }: RepoListProps) => (
   <>
     {!quantity && <EmptyList />}
-    {!!quantity && <List login={login} quantity={quantity} />}
+    {!!quantity && <List userQuery={userQuery} quantity={quantity} />}
   </>
 );
 

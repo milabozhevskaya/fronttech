@@ -1,35 +1,36 @@
 import { Card } from "@/entities/repo/intex";
-import type { Repo } from "@/shared/types";
 import { useService } from "@/shared/api/useService";
-import { getRepos } from "@/widgets/repo-list/api/getRepos";
 import { useState } from "react";
+import { QUERY_KEY_REPOS, REPOS_PER_PAGE } from "@/shared/constants";
+import type { Repo } from "@/shared/types";
+import { services } from "@/shared/api/services";
 import { Item } from "../item";
 import { Pagination } from "../pagination";
 
 import css from "./styles.module.scss";
 
-const OPTIONS = {
-  PER_PAGE: 4,
-};
-
 const List = ({
-  login,
+  userQuery,
   quantity,
 }: {
-  login: string;
+  userQuery: string;
   quantity: number;
-}): JSX.Element => {
+}) => {
   const [page, setPage] = useState(1);
-  const { data, error, loading } = useService<Array<Repo>>(getRepos, {
-    query: `${login}/repos?per_page=${OPTIONS.PER_PAGE}&page=${page}&type=public`,
-  });
+  const { data, isLoading, isFetching, error } = useService<Array<Repo>>(
+    QUERY_KEY_REPOS,
+    services.getRepos,
+    { user: userQuery, perPage: REPOS_PER_PAGE, page },
+    true,
+    page.toString()
+  );
 
   return (
     <div className={css["repo-list"]}>
       <h2 className={css["repo-list__title"]}>Repositories ({quantity})</h2>
-      {loading && <span>Loading...</span>}
-      {!loading && error && <span>{error.message}</span>}
-      {!loading && !error && data && data.length > 0 && (
+      {isLoading && isFetching && <span>Loading...</span>}
+      {!isLoading && !isFetching && error && <span>{error.message}</span>}
+      {!isLoading && !isFetching && !error && data && data.length > 0 && (
         <ul className={css["repo-list__list"]}>
           {...data.map((repo) => (
             <Item

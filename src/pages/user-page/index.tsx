@@ -5,13 +5,13 @@ import type { User } from "@/shared/types";
 
 import css from "./styles.module.scss";
 
-const UserPage = ({ ...props }: User): JSX.Element => (
+const UserPage = ({ ...props }: User & { userQuery: string }) => (
   <div className={css["user-page"]}>
     <div className={css["user-page__aside"]}>
       <UserInfo {...props} />
     </div>
     <div className={css["user-page__content"]}>
-      <RepoList login={props.login} quantity={props.publicRepos} />
+      <RepoList userQuery={props.userQuery} quantity={props.public_repos} />
     </div>
   </div>
 );

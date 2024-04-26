@@ -15,6 +15,9 @@ const SearchInput = ({
     </div>
     <input
       className={css.search__input}
+      type="text"
+      autoFocus={true}
+      placeholder="Enter GitHub username"
       {...props}
       onChange={(e: ChangeEvent<HTMLInputElement>): void => {
         onChange(e.target.value);
