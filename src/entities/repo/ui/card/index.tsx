@@ -12,7 +12,7 @@ const Card = ({ name, description, htmlURL }: Repo) => (
     >
       {name}
     </a>
-    <p>{description}</p>
+    <p className={styles.card__description}>{description}</p>
   </div>
 );
 

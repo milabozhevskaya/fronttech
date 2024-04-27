@@ -27,11 +27,7 @@
   }
 
   &__text {
-    font-family: Inter, sans-serif;
-    text-align: center;
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 140%;
+    @include font(400, 22px, 140%);
     text-align: center;
     color: #808080;
   }

@@ -8,10 +8,7 @@
   flex-grow: 1;
 
   &__title {
-    font-family: Inter, sans-serif;
-    font-weight: 600;
-    font-size: 32px;
-    line-height: 130%;
+    @include font(600, 32px, 130%);
     color: #000;
     width: 100%;
     text-align: left;

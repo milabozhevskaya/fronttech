@@ -6,10 +6,7 @@
   column-gap: 16px;
 
   &__display {
-    font-family: Inter, sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 150%;
+    @include font(400, 14px, 150%);
     color: #808080;
   }
 
@@ -69,19 +66,16 @@
   }
 
   &__button {
+    @include font(400, 14px, 150%);
     display: flex;
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    font-family: Inter, sans-serif;
     border-radius: 3px;
     padding: 2px 6px;
     width: 21px;
     height: 25px;
     background-color: transparent;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 150%;
     color: #808080;
     transform: 0.6s;
     user-select: none;

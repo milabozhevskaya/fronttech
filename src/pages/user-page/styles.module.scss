@@ -5,6 +5,7 @@
   position: relative;
 
   &__aside {
+    @include font(400, 22px, 140%);
     display: flex;
     width: 40%;
     max-width: 292px;
@@ -14,7 +15,6 @@
     align-items: center;
     row-gap: 16px;
     background-color: transparent;
-    font-family: Inter, sans-serif;
   }
 
   &__content {
@@ -36,11 +36,6 @@
   }
 
   &__text {
-    font-family: Inter, sans-serif;
-    text-align: center;
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 140%;
     text-align: center;
     color: #808080;
   }
