@@ -66,8 +66,8 @@ const config = {
         ],
       },
       {
-        test: /\.(source.svg)$/i,
-        type: "asset/source",
+        test: /\.svg$/,
+        use: ["@svgr/webpack"],
       },
       {
         test: /\.(resource.png)$/i,
