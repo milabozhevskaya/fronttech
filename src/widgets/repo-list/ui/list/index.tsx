@@ -7,7 +7,7 @@ import { services } from "@/shared/api/services";
 import { Item } from "../item";
 import { Pagination } from "../pagination";
 
-import css from "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 const List = ({
   userQuery,
@@ -26,17 +26,17 @@ const List = ({
   );
 
   return (
-    <div className={css["repo-list"]}>
-      <h2 className={css["repo-list__title"]}>Repositories ({quantity})</h2>
+    <div className={styles["repo-list"]}>
+      <h2 className={styles["repo-list__title"]}>Repositories ({quantity})</h2>
       {isLoading && isFetching && <span>Loading...</span>}
       {!isLoading && !isFetching && error && <span>{error.message}</span>}
       {!isLoading && !isFetching && !error && data && data.length > 0 && (
-        <ul className={css["repo-list__list"]}>
+        <ul className={styles["repo-list__list"]}>
           {...data.map((repo) => (
             <Item
               key={repo.id}
               id={repo.id + repo.name}
-              classNameItem={css["repo-list__item"]}
+              classNameItem={styles["repo-list__item"]}
             >
               <Card
                 name={repo.name}
@@ -48,7 +48,7 @@ const List = ({
           ))}
         </ul>
       )}
-      <div className={css["repo-list__pagination"]}>
+      <div className={styles["repo-list__pagination"]}>
         <Pagination page={page} setPage={setPage} quantity={quantity} />
       </div>
     </div>

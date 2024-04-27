@@ -3,14 +3,14 @@ import { RepoList } from "@/widgets/repo-list";
 
 import type { User } from "@/shared/types";
 
-import css from "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 const UserPage = ({ ...props }: User & { userQuery: string }) => (
-  <div className={css["user-page"]}>
-    <div className={css["user-page__aside"]}>
+  <div className={styles["user-page"]}>
+    <div className={styles["user-page__aside"]}>
       <UserInfo {...props} />
     </div>
-    <div className={css["user-page__content"]}>
+    <div className={styles["user-page__content"]}>
       <RepoList userQuery={props.userQuery} quantity={props.public_repos} />
     </div>
   </div>

@@ -1,9 +1,9 @@
 import type { HeaderProps, PageProps } from "@/shared/types";
 
-import css from "./styles.module.scss";
+import styles from "./styles.module.scss";
 
-const Layout = ({ children }: { children: React.ReactNode }): JSX.Element => (
-  <div className={css.layout}>{children}</div>
+const Layout = ({ children }: { children: React.ReactNode }) => (
+  <div className={styles.layout}>{children}</div>
 );
 
 Layout.Header = function Header({
@@ -11,10 +11,10 @@ Layout.Header = function Header({
   ...props
 }: {
   as: (({ ...props }: HeaderProps) => React.JSX.Element) | string;
-} & HeaderProps): JSX.Element {
+} & HeaderProps) {
   return (
-    <header className={css.header}>
-      <div className={`${css.header__container} ${css.container}`}>
+    <header className={styles.header}>
+      <div className={`${styles.header__container} ${styles.container}`}>
         <Component {...props} />
       </div>
     </header>
@@ -26,10 +26,10 @@ Layout.Main = function Main({
   ...props
 }: {
   as: (({ ...props }: PageProps) => React.JSX.Element) | string;
-} & PageProps): JSX.Element {
+} & PageProps) {
   return (
-    <main className={css.main}>
-      <div className={`${css.main__container} ${css.container}`}>
+    <main className={styles.main}>
+      <div className={`${styles.main__container} ${styles.container}`}>
         <Component {...props} />
       </div>
     </main>

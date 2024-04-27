@@ -11,6 +11,6 @@ const Search = ({
       }) => React.JSX.Element)
     | string;
   onSearch: (value: string) => void;
-}): JSX.Element => <Component onChange={onSearch} {...props} />;
+}) => <Component onChange={onSearch} {...props} />;
 
 export { Search };

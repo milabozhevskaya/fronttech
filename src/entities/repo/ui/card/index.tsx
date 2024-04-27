@@ -1,12 +1,12 @@
 import type { Repo } from "@/shared/types";
 
-import css from "./styles.module.scss";
+import styles from "./styles.module.scss";
 
-const Card = ({ name, description, htmlURL }: Repo): JSX.Element => (
-  <div className={css.card}>
+const Card = ({ name, description, htmlURL }: Repo) => (
+  <div className={styles.card}>
     <a
       href={htmlURL}
-      className={css.card__name}
+      className={styles.card__name}
       target="_blank"
       rel="noreferrer"
     >

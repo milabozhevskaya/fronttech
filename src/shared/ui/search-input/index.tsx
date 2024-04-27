@@ -1,6 +1,6 @@
 import type { ChangeEvent } from "react";
 
-import css from "./styles.module.scss";
+import styles from "./styles.module.scss";
 import { SVGSelector } from "../svg";
 
 const SearchInput = ({
@@ -8,13 +8,13 @@ const SearchInput = ({
   ...props
 }: {
   onChange: (value: string) => void;
-}): JSX.Element => (
-  <div className={css.search}>
-    <div className={css.search__icon}>
+}) => (
+  <div className={styles.search}>
+    <div className={styles.search__icon}>
       <SVGSelector id="search" />
     </div>
     <input
-      className={css.search__input}
+      className={styles.search__input}
       type="text"
       autoFocus={true}
       placeholder="Enter GitHub username"

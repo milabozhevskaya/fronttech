@@ -1,13 +1,13 @@
 import { SVGSelector } from "@/shared/ui/svg";
 
-import css from "./styles.module.scss";
+import styles from "./styles.module.scss";
 
-const EmptyPage = (): JSX.Element => (
-  <div className={css["empty-page"]}>
-    <div className={css["empty-page__icon"]}>
+const EmptyPage = () => (
+  <div className={styles["empty-page"]}>
+    <div className={styles["empty-page__icon"]}>
       <SVGSelector id="search" />
     </div>
-    <div className={css["empty-page__text"]}>
+    <div className={styles["empty-page__text"]}>
       Start with searching a GitHub user
     </div>
   </div>

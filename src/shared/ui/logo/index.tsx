@@ -1,6 +1,6 @@
 import { SVGSelector } from "../svg";
 
-const Logo = (): JSX.Element => (
+const Logo = () => (
   <a
     href="https://www.github.com"
     title="logo"

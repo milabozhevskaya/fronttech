@@ -2,7 +2,7 @@ import { SVGSelector } from "@/shared/ui/svg";
 import { getDisplay } from "./api/getDisplay";
 import { useOptionsButtons } from "./hooks/pagination";
 
-import css from "./styles.module.scss";
+import styles from "./styles.module.scss";
 
 const Pagination = ({
   page,
@@ -14,16 +14,16 @@ const Pagination = ({
   setPage: (value: number) => void;
   quantity: number;
   perPage?: number;
-}): JSX.Element => {
+}) => {
   const options = useOptionsButtons(page, perPage, quantity, 7);
   return (
-    <div className={css.pagination}>
-      <div className={css.pagination__display}>
+    <div className={styles.pagination}>
+      <div className={styles.pagination__display}>
         {getDisplay(page, perPage, quantity)}
       </div>
-      <div className={css.pagination__buttons}>
+      <div className={styles.pagination__buttons}>
         <button
-          className={css["pagination__button-nav"]}
+          className={styles["pagination__button-nav"]}
           onClick={(): void => {
             setPage(page - 1);
           }}
@@ -31,7 +31,7 @@ const Pagination = ({
         >
           <SVGSelector id="arrow-left" />
         </button>
-        <div className={css.pagination__list}>
+        <div className={styles.pagination__list}>
           {...options
             .filter(
               (cur, index) =>
@@ -44,7 +44,7 @@ const Pagination = ({
                 return (
                   <button
                     key={value}
-                    className={css.pagination__button}
+                    className={styles.pagination__button}
                     onClick={(): void => {
                       setPage(value);
                     }}
@@ -57,7 +57,7 @@ const Pagination = ({
               return (
                 <button
                   key={value}
-                  className={`${css.pagination__button} ${css["pagination__button--dots"]}`}
+                  className={`${styles.pagination__button} ${styles["pagination__button--dots"]}`}
                   onClick={(): void => {}}
                   disabled={disabled}
                 >
@@ -67,7 +67,7 @@ const Pagination = ({
             })}
         </div>
         <button
-          className={css["pagination__button-nav"]}
+          className={styles["pagination__button-nav"]}
           onClick={(): void => {
             setPage(page + 1);
           }}

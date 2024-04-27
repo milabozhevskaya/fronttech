@@ -1,13 +1,13 @@
 import { SVGSelector } from "@/shared/ui/svg";
 
-import css from "./styles.module.scss";
+import styles from "./styles.module.scss";
 
-const LoadingPage = (): JSX.Element => (
-  <div className={css["loading-page"]}>
-    <div className={css["loading-page__icon"]}>
+const LoadingPage = () => (
+  <div className={styles["loading-page"]}>
+    <div className={styles["loading-page__icon"]}>
       <SVGSelector id="loading" />
     </div>
-    <div className={css["loading-page__text"]}>Loading...</div>
+    <div className={styles["loading-page__text"]}>Loading...</div>
   </div>
 );
 

@@ -10,6 +10,11 @@
     max-width: 292px;
     flex-shrink: 0;
     position: relative;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 16px;
+    background-color: transparent;
+    font-family: Inter, sans-serif;
   }
 
   &__content {
