@@ -8,6 +8,8 @@ import { services } from "@/shared/api/services";
 import type { User } from "@/shared/types";
 import { QUERY_KEY_USER } from "@/shared/constants";
 
+import "./styles/styles.scss";
+
 const App = () => {
   const [userQuery, setUserQuery] = useState("");
   const {

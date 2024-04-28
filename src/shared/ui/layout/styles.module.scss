@@ -1,3 +1,5 @@
+@import "@/shared/styles/env/index.scss";
+
 body.root {
   position: relative;
   width: 100%;
@@ -12,15 +14,15 @@ body.root {
   width: 100%;
   flex-direction: column;
   align-items: center;
-  background-color: #e5e5e5;
-  color: #000000;
+  background-color: $background-color-base;
+  color: $font-color-black;
   flex-grow: 1;
 }
 
 .header {
   width: 100%;
   position: relative;
-  background-color: #0064eb;
+  background-color: $font-color-blue;
   display: flex;
   justify-content: center;
   align-items: center;

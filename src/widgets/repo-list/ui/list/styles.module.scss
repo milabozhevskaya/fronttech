@@ -1,3 +1,5 @@
+@import "@/shared/styles/env/index.scss";
+
 .repo-list {
   display: flex;
   flex-direction: column;
@@ -9,7 +11,7 @@
 
   &__title {
     @include font(600, 32px, 130%);
-    color: #000;
+    color: $font-color-black;
     width: 100%;
     text-align: left;
   }
@@ -28,7 +30,7 @@
     width: 100%;
     border-radius: 6px;
     padding: 24px 32px;
-    background: #fff;
+    background: $background-color-white;
     position: relative;
   }
 

@@ -1,3 +1,5 @@
+@import "@/shared/styles/env/index.scss";
+
 .user-info {
   &__desc {
     display: flex;
@@ -12,12 +14,12 @@
     font-weight: 600;
     font-size: 26px;
     line-height: 130%;
-    color: #000;
+    color: $font-color-black;
   }
 
   &__login {
     font-size: 18px;
-    color: #0064eb;
+    color: $font-color-blue;
     text-align: left;
     align-self: start;
   }
@@ -31,7 +33,7 @@
   }
 
   &__stat {
-    color: #000;
+    color: $font-color-black;
     display: flex;
     align-items: center;
     column-gap: 5px;
@@ -45,7 +47,7 @@
     svg {
       width: 100%;
       height: 100%;
-      fill: #808080;
+      fill: $color-gray;
     }
   }
 }

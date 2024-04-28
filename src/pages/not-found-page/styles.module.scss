@@ -1,3 +1,5 @@
+@import "@/shared/styles/env/index.scss";
+
 .not-found-page {
   display: flex;
   flex-direction: column;
@@ -15,13 +17,13 @@
     svg {
       width: 100%;
       height: 100%;
-      fill: #808080;
+      fill: $color-gray;
     }
   }
 
   &__text {
     @include font(400, 22px, 140%);
     text-align: center;
-    color: #808080;
+    color: $color-gray;
   }
 }
