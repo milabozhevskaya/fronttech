@@ -10,15 +10,13 @@
   }
 
   &__name {
+    @include font(600, 26px, 130%);
     width: 100%;
-    font-weight: 600;
-    font-size: 26px;
-    line-height: 130%;
     color: $font-color-black;
   }
 
   &__login {
-    font-size: 18px;
+    @include font(400, 18px, 150%);
     color: $font-color-blue;
     text-align: left;
     align-self: start;

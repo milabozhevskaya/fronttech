@@ -7,7 +7,6 @@
   position: relative;
 
   &__aside {
-    @include font(400, 22px, 140%);
     display: flex;
     width: 40%;
     max-width: 292px;

@@ -1,7 +1,6 @@
 const Search = ({
   as: Component = "input",
   onSearch,
-  ...props
 }: {
   as:
     | (({
@@ -11,6 +10,6 @@ const Search = ({
       }) => React.JSX.Element)
     | string;
   onSearch: (value: string) => void;
-}) => <Component onChange={onSearch} {...props} />;
+}) => <Component onChange={onSearch} />;
 
 export { Search };
