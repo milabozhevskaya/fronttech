@@ -30,7 +30,7 @@ const List = ({ queryString, totalCountOfItems }: ListProps) => {
         Repositories ({totalCountOfItems})
       </h2>
       {isLoading && isFetching && <span>Loading...</span>}
-      {!isLoading && !isFetching && error && <span>{error.message}</span>}
+      {!isLoading && !isFetching && error && <span>{error}</span>}
       {!isLoading && !isFetching && !error && data && data.length > 0 && (
         <ul className={styles["repo-list__list"]}>
           {...data.map((repo) => (

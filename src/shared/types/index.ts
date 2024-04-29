@@ -28,13 +28,13 @@ type ReposQuery = {
 type UserContextType<T> = {
   data: T | null;
   loading: boolean;
-  error?: Error;
+  error?: string;
 };
 
 type ServicePayload<T> = {
   isLoading: boolean;
   isFetching: boolean;
-  error: Error | null;
+  error: string | null;
   data?: T;
 };
 

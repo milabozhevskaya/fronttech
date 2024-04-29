@@ -20,7 +20,7 @@ const useService = <T>(
   return {
     isLoading,
     isFetching,
-    error,
+    error: error && error.message,
     data: (data && data.data) || undefined,
   };
 };
