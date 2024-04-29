@@ -25,34 +25,17 @@ type ReposQuery = {
   page: number;
 };
 
-type RepoListProps = {
-  userQuery: string;
-  quantity: number;
-};
-
 type UserContextType<T> = {
   data: T | null;
   loading: boolean;
-  error: Error | undefined;
-};
-
-type PageProps = {
-  user: User | undefined;
-  userQuery: string;
-  loading: boolean;
-  fetching: boolean;
-  notFound: boolean;
+  error?: Error;
 };
 
 type ServicePayload<T> = {
   isLoading: boolean;
   isFetching: boolean;
   error: Error | null;
-  data: T | undefined;
-};
-
-type HeaderProps = {
-  onSearch: (value: string) => void;
+  data?: T;
 };
 
 type ServiceQuery<T> = T extends User
@@ -66,9 +49,6 @@ export type {
   User,
   UserContextType,
   Repo,
-  RepoListProps,
-  PageProps,
-  HeaderProps,
   ServicePayload,
   UserQuery,
   ReposQuery,

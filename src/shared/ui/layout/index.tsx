@@ -1,6 +1,18 @@
-import type { HeaderProps, PageProps } from "@/shared/types";
+import type { User } from "@/shared/types";
 
 import styles from "./styles.module.scss";
+
+type HeaderProps = {
+  onSearch: (value: string) => void;
+};
+
+type PageProps = {
+  user?: User;
+  userQuery: string;
+  loading: boolean;
+  fetching: boolean;
+  notFound: boolean;
+};
 
 const Layout = ({ children }: { children: React.ReactNode }) => (
   <div className={styles.layout}>{children}</div>

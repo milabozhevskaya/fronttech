@@ -1,8 +1,16 @@
-import type { PageProps } from "@/shared/types";
+import type { User } from "@/shared/types";
 import { UserPage } from "./user-page";
 import { LoadingPage } from "./loading-page";
 import { NotFoundPage } from "./not-found-page";
 import { EmptyPage } from "./empty-page";
+
+type PageProps = {
+  user?: User;
+  userQuery: string;
+  loading: boolean;
+  fetching: boolean;
+  notFound: boolean;
+};
 
 const Page = ({ userQuery, user, loading, fetching, notFound }: PageProps) => {
   if (loading || fetching) {
