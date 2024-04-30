@@ -13,9 +13,7 @@ const UserInfo = ({
   following,
 }: Exclude<User, "publicRepos">) => (
   <>
-    <Avatar>
-      <img src={avatarURL} alt={name} />
-    </Avatar>
+    <Avatar src={avatarURL} alt={name} />
     <div className={styles.userInfoDesc}>
       <h1 className={styles.userInfoName}>{name}</h1>
       <a

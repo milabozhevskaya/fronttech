@@ -1,8 +1,14 @@
-import type { ReactNode } from "react";
 import styles from "./styles.module.scss";
 
-const Avatar = ({ children }: { children: ReactNode }) => (
-  <div className={styles.avatar}>{children}</div>
+type AvatarProps = {
+  src: string;
+  alt: string;
+};
+
+const Avatar = ({ src, alt }: AvatarProps) => (
+  <div className={styles.avatar}>
+    <img src={src} alt={alt} />
+  </div>
 );
 
 export { Avatar };
