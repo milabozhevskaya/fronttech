@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import type { User } from "@/shared/types";
 
 import styles from "./styles.module.scss";
@@ -14,7 +15,7 @@ type PageProps = {
   notFound: boolean;
 };
 
-const Layout = ({ children }: { children: React.ReactNode }) => (
+const Layout = ({ children }: { children: ReactNode }) => (
   <div className={styles.layout}>{children}</div>
 );
 
@@ -22,7 +23,7 @@ Layout.Header = function Header({
   as: Component = "header",
   ...props
 }: {
-  as: (({ ...props }: HeaderProps) => React.JSX.Element) | string;
+  as: (({ ...props }: HeaderProps) => JSX.Element) | string;
 } & HeaderProps) {
   return (
     <header className={styles.header}>
@@ -37,7 +38,7 @@ Layout.Main = function Main({
   as: Component = "main",
   ...props
 }: {
-  as: (({ ...props }: PageProps) => React.JSX.Element) | string;
+  as: (({ ...props }: PageProps) => JSX.Element) | string;
 } & PageProps) {
   return (
     <main className={styles.main}>

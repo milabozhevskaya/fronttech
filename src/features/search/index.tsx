@@ -3,11 +3,7 @@ const Search = ({
   onSearch,
 }: {
   as:
-    | (({
-        onChange,
-      }: {
-        onChange: (value: string) => void;
-      }) => React.JSX.Element)
+    | (({ onChange }: { onChange: (value: string) => void }) => JSX.Element)
     | string;
   onSearch: (value: string) => void;
 }) => <Component onChange={onSearch} />;
