@@ -60,6 +60,9 @@ const config = {
             options: {
               importLoaders: 1,
               sourceMap: true,
+              modules: {
+                exportLocalsConvention: "camelCase",
+              },
             },
           },
           "sass-loader",

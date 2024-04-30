@@ -25,31 +25,31 @@ const List = ({ queryString, totalCountOfItems }: ListProps) => {
   );
 
   return (
-    <div className={styles["repo-list"]}>
-      <h2 className={styles["repo-list__title"]}>
+    <div className={styles.repoList}>
+      <h2 className={styles.repoListTitle}>
         Repositories ({totalCountOfItems})
       </h2>
       {isLoading && isFetching && <span>Loading...</span>}
       {!isLoading && !isFetching && error && <span>{error}</span>}
       {!isLoading && !isFetching && !error && data && data.length > 0 && (
-        <ul className={styles["repo-list__list"]}>
+        <ul className={styles.repoListList}>
           {...data.map((repo) => (
             <Item
               key={repo.id}
               id={repo.id + repo.name}
-              classNameItem={styles["repo-list__item"]}
+              classNameItem={styles.repoListItem}
             >
               <Card
                 name={repo.name}
                 description={repo.description}
                 id={repo.id}
-                htmlURL={repo.htmlURL}
+                html_url={repo.html_url}
               />
             </Item>
           ))}
         </ul>
       )}
-      <div className={styles["repo-list__pagination"]}>
+      <div className={styles.repoListPagination}>
         <Pagination
           page={page}
           setPage={setPage}

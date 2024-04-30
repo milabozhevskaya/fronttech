@@ -1,51 +1,49 @@
 @import "@/shared/styles/env/index.scss";
 
-.user-info {
-  &__desc {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.user-info-desc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  row-gap: 8px;
+}
+
+.user-info-name {
+  @include font(600, 26px, 130%);
+  width: 100%;
+  color: $font-color-black;
+}
+
+.user-info-login {
+  @include font(400, 18px, 150%);
+  color: $font-color-blue;
+  text-align: left;
+  align-self: start;
+}
+
+.user-info-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 10px;
+  width: 100%;
+}
+
+.user-info-stat {
+  color: $font-color-black;
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  user-select: none;
+}
+
+.user-info-icon {
+  width: 23px;
+  height: 23px;
+
+  svg {
     width: 100%;
-    row-gap: 8px;
-  }
-
-  &__name {
-    @include font(600, 26px, 130%);
-    width: 100%;
-    color: $font-color-black;
-  }
-
-  &__login {
-    @include font(400, 18px, 150%);
-    color: $font-color-blue;
-    text-align: left;
-    align-self: start;
-  }
-
-  &__stats {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    column-gap: 10px;
-    width: 100%;
-  }
-
-  &__stat {
-    color: $font-color-black;
-    display: flex;
-    align-items: center;
-    column-gap: 5px;
-    user-select: none;
-  }
-
-  &__icon {
-    width: 23px;
-    height: 23px;
-
-    svg {
-      width: 100%;
-      height: 100%;
-      fill: $color-gray;
-    }
+    height: 100%;
+    fill: $color-gray;
   }
 }

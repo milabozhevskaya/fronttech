@@ -26,7 +26,7 @@ Layout.Header = function Header({
 } & HeaderProps) {
   return (
     <header className={styles.header}>
-      <div className={`${styles.header__container} ${styles.container}`}>
+      <div className={`${styles.headerContainer} ${styles.container}`}>
         <Component {...props} />
       </div>
     </header>
@@ -41,7 +41,7 @@ Layout.Main = function Main({
 } & PageProps) {
   return (
     <main className={styles.main}>
-      <div className={`${styles.main__container} ${styles.container}`}>
+      <div className={`${styles.mainContainer} ${styles.container}`}>
         <Component {...props} />
       </div>
     </main>

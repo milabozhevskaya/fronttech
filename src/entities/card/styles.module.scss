@@ -6,15 +6,16 @@
   width: 100%;
   text-align: left;
   row-gap: 12px;
+}
 
-  &__name {
-    font-weight: 500;
-    font-size: 24px;
-    color: $font-color-blue;
-  }
+.card-name {
+  font-weight: 500;
+  font-size: 24px;
+  color: $font-color-blue;
+  cursor: pointer;
+}
 
-  &__description {
-    color: $font-color-black;
-    width: 90%;
-  }
+.card-description {
+  color: $font-color-black;
+  width: 90%;
 }

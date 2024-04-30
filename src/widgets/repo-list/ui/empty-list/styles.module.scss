@@ -9,21 +9,21 @@
   max-width: 210px;
   margin: 0 auto;
   row-gap: 26px;
+}
 
-  &__icon {
-    width: 76px;
-    height: 62px;
+.empty-list-icon {
+  width: 76px;
+  height: 62px;
 
-    svg {
-      width: 100%;
-      height: 100%;
-      fill: $color-gray;
-    }
+  svg {
+    width: 100%;
+    height: 100%;
+    fill: $color-gray;
   }
+}
 
-  &__text {
-    @include font(400, 22px, 140%);
-    text-align: center;
-    color: $color-gray;
-  }
+.empty-list-text {
+  @include font(400, 22px, 140%);
+  text-align: center;
+  color: $color-gray;
 }

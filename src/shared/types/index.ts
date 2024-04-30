@@ -12,7 +12,7 @@ type Repo = {
   id: number;
   name: string;
   description: string | null;
-  htmlURL: string;
+  html_url: string;
 };
 
 type UserQuery = {

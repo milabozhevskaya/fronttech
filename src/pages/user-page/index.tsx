@@ -8,11 +8,11 @@ import styles from "./styles.module.scss";
 type UserPageProps = User & { userQuery: string };
 
 const UserPage = ({ ...props }: UserPageProps) => (
-  <div className={styles["user-page"]}>
-    <div className={styles["user-page__aside"]}>
+  <div className={styles.userPage}>
+    <div className={styles.userPageAside}>
       <UserInfo {...props} />
     </div>
-    <div className={styles["user-page__content"]}>
+    <div className={styles.userPageContent}>
       <RepoList
         userQuery={props.userQuery}
         totalCountOfRepos={props.public_repos}

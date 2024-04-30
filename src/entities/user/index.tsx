@@ -16,25 +16,25 @@ const UserInfo = ({
     <Avatar>
       <img src={avatarURL} alt={name} />
     </Avatar>
-    <div className={styles["user-info__desc"]}>
-      <h1 className={styles["user-info__name"]}>{name}</h1>
+    <div className={styles.userInfoDesc}>
+      <h1 className={styles.userInfoName}>{name}</h1>
       <a
         href={htmlURL}
-        className={styles["user-info__login"]}
+        className={styles.userInfoLogin}
         target="_blank"
         rel="noreferrer"
       >
         {login}
       </a>
-      <div className={styles["user-info__stats"]}>
-        <div className={styles["user-info__stat"]}>
-          <div className={styles["user-info__icon"]}>
+      <div className={styles.userInfoStats}>
+        <div className={styles.userInfoStat}>
+          <div className={styles.userInfoIcon}>
             <SVGSelector id="followers" />
           </div>
           {followers} followers{" "}
         </div>
-        <div className={styles["user-info__stat"]}>
-          <div className={styles["user-info__icon"]}>
+        <div className={styles.userInfoStat}>
+          <div className={styles.userInfoIcon}>
             <SVGSelector id="following" />
           </div>
           {following} following{" "}

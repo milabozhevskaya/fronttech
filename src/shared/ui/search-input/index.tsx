@@ -9,11 +9,11 @@ const SearchInput = ({ onChange }: { onChange: (value: string) => void }) => {
   };
   return (
     <div className={styles.search}>
-      <div className={styles.search__icon}>
+      <div className={styles.searchIcon}>
         <SVGSelector id="search" />
       </div>
       <input
-        className={styles.search__input}
+        className={styles.searchInput}
         type="text"
         autoFocus={true}
         placeholder="Enter GitHub username"

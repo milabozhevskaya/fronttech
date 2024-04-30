@@ -8,35 +8,35 @@
   position: relative;
   row-gap: 14px;
   flex-grow: 1;
+}
 
-  &__title {
-    @include font(600, 32px, 130%);
-    color: $font-color-black;
-    width: 100%;
-    text-align: left;
-  }
+.repo-list-title {
+  @include font(600, 32px, 130%);
+  color: $font-color-black;
+  width: 100%;
+  text-align: left;
+}
 
-  &__list {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    row-gap: 10px;
-    position: relative;
-    flex-grow: 1;
-    margin-bottom: auto;
-  }
+.repo-list-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  row-gap: 10px;
+  position: relative;
+  flex-grow: 1;
+  margin-bottom: auto;
+}
 
-  &__item {
-    width: 100%;
-    border-radius: 6px;
-    padding: 24px 32px;
-    background: $background-color-white;
-    position: relative;
-  }
+.repo-list-item {
+  width: 100%;
+  border-radius: 6px;
+  padding: 24px 32px;
+  background: $background-color-white;
+  position: relative;
+}
 
-  &__pagination {
-    display: flex;
-    margin-left: auto;
-    text-align: right;
-  }
+.repo-list-pagination {
+  display: flex;
+  margin-left: auto;
+  text-align: right;
 }

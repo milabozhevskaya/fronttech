@@ -18,12 +18,12 @@ const Pagination = ({
   const options = useOptionsButtons(page, perPage, quantity, 7);
   return (
     <div className={styles.pagination}>
-      <div className={styles.pagination__display}>
+      <div className={styles.paginationDisplay}>
         {getDisplay(page, perPage, quantity)}
       </div>
-      <div className={styles.pagination__buttons}>
+      <div className={styles.paginationButtons}>
         <button
-          className={styles["pagination__button-nav"]}
+          className={styles.paginationButtonNav}
           onClick={(): void => {
             setPage(page - 1);
           }}
@@ -31,7 +31,7 @@ const Pagination = ({
         >
           <SVGSelector id="arrow-left" />
         </button>
-        <div className={styles.pagination__list}>
+        <div className={styles.paginationList}>
           {...options
             .filter(
               (cur, index) =>
@@ -44,7 +44,7 @@ const Pagination = ({
                 return (
                   <button
                     key={value}
-                    className={styles.pagination__button}
+                    className={styles.paginationButton}
                     onClick={(): void => {
                       setPage(value);
                     }}
@@ -57,7 +57,7 @@ const Pagination = ({
               return (
                 <button
                   key={value}
-                  className={`${styles.pagination__button} ${styles["pagination__button--dots"]}`}
+                  className={`${styles.paginationButton} ${styles.paginationButton_dots}`}
                   onClick={(): void => {}}
                   disabled={disabled}
                 >
@@ -67,7 +67,7 @@ const Pagination = ({
             })}
         </div>
         <button
-          className={styles["pagination__button-nav"]}
+          className={styles.paginationButtonNav}
           onClick={(): void => {
             setPage(page + 1);
           }}
