@@ -9,6 +9,7 @@ type PageProps = {
   isPendingUser: boolean;
   isUserError: boolean;
   reposTotalCount: number;
+  page: number;
   userRepos: Array<Repo>;
   onGetRepos: (page: number) => void;
   isPendingRepos: boolean;
@@ -20,6 +21,7 @@ export const Page = ({
   isPendingUser,
   isUserError,
   reposTotalCount,
+  page,
   userRepos,
   onGetRepos,
   isPendingRepos,
@@ -37,6 +39,7 @@ export const Page = ({
         {...{
           user,
           reposTotalCount,
+          page,
           userRepos,
           onGetRepos,
           isPendingRepos,

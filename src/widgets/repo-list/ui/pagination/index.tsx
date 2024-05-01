@@ -1,5 +1,4 @@
 import { SVGSelector } from "@/shared/ui/svg";
-import { useState } from "react";
 import { getDisplay } from "./api/getDisplay";
 import { useOptionsButtons } from "./hooks/useOptionsButtons";
 
@@ -7,15 +6,29 @@ import styles from "./styles.module.scss";
 
 export const Pagination = ({
   reposTotalCount,
+  page,
   onGetRepos,
   perPage = 4,
 }: {
   reposTotalCount: number;
+  page: number;
   onGetRepos: (page: number) => void;
   perPage?: number;
 }) => {
-  const [page, setPage] = useState(1);
   const options = useOptionsButtons(page, perPage, reposTotalCount, 7);
+
+  const scrollOnPrevPage = () => {
+    onGetRepos(page - 1);
+  };
+
+  const scrollOnNextPage = () => {
+    onGetRepos(page + 1);
+  };
+
+  const changePage = (value: number) => {
+    onGetRepos(value);
+  };
+
   return (
     <div className={styles.pagination}>
       <div className={styles.paginationDisplay}>
@@ -24,10 +37,7 @@ export const Pagination = ({
       <div className={styles.paginationButtons}>
         <button
           className={styles.paginationButtonNav}
-          onClick={(): void => {
-            setPage(page - 1);
-            onGetRepos(page - 1);
-          }}
+          onClick={scrollOnPrevPage}
           disabled={page === 1}
         >
           <SVGSelector id="arrow-left" />
@@ -46,9 +56,8 @@ export const Pagination = ({
                   <button
                     key={value}
                     className={styles.paginationButton}
-                    onClick={(): void => {
-                      setPage(value);
-                      onGetRepos(value);
+                    onClick={() => {
+                      changePage(value);
                     }}
                     disabled={disabled}
                   >
@@ -59,8 +68,7 @@ export const Pagination = ({
               return (
                 <button
                   key={value}
-                  className={`${styles.paginationButton} ${styles.paginationButton_dots}`}
-                  onClick={(): void => {}}
+                  className={`${styles.paginationButton} ${styles.paginationButtonDots}`}
                   disabled={disabled}
                 >
                   {"..."}
@@ -70,10 +78,7 @@ export const Pagination = ({
         </div>
         <button
           className={`${styles.paginationButtonNav} ${styles.paginationButtonNavRight}`}
-          onClick={(): void => {
-            setPage(page + 1);
-            onGetRepos(page + 1);
-          }}
+          onClick={scrollOnNextPage}
           disabled={page === Math.ceil(reposTotalCount / perPage)}
         >
           <SVGSelector id="arrow-left" />

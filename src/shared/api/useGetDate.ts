@@ -8,6 +8,7 @@ export const useGitHubUser = () => {
   const [user, setUser] = useState<User | null>(null);
   const [isUserError, setIsUserError] = useState(false);
   const [reposTotalCount, setReposTotalCount] = useState(0);
+  const [page, setPage] = useState(1);
   const [userRepos, setUserRepos] = useState<Array<Repo>>([]);
   const [isReposError, setIsReposError] = useState(false);
   const { isPending: isPendingUser, mutate: orderGetUser } =
@@ -15,11 +16,13 @@ export const useGitHubUser = () => {
   const { isPending: isPendingRepos, mutate: orderGetRepos } =
     useCreateOrGetRepos();
 
-  const onGetRepos = (page: number, searchInput = search) => {
+  const onGetRepos = (newPage: number, searchInput = search) => {
     setIsReposError(false);
     setUserRepos([]);
+    setPage(newPage);
+
     orderGetRepos(
-      { user: searchInput, perPage: 4, page },
+      { user: searchInput, perPage: 4, page: newPage },
       {
         onSuccess: (data) => {
           setUserRepos(data.data);
@@ -47,6 +50,7 @@ export const useGitHubUser = () => {
       setUser(null);
       setReposTotalCount(0);
       setUserRepos([]);
+      setIsUserError(false);
       return;
     }
     setSearch(value);
@@ -59,6 +63,7 @@ export const useGitHubUser = () => {
         onSuccess: (data) => {
           setUser(data.data);
           setReposTotalCount(data.data.public_repos || 0);
+          setPage(1);
           onGetRepos(1, value);
         },
         onError: (error) => {
@@ -86,6 +91,7 @@ export const useGitHubUser = () => {
     isPendingUser,
     isUserError,
     reposTotalCount,
+    page,
     userRepos,
     onGetRepos,
     isPendingRepos,

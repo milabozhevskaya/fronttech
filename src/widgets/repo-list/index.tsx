@@ -6,6 +6,7 @@ import { ErrorList } from "./ui/error-list";
 
 type RepoListProps = {
   reposTotalCount: number;
+  page: number;
   userRepos: Array<Repo>;
   onGetRepos: (page: number) => void;
   isPendingRepos: boolean;
@@ -14,6 +15,7 @@ type RepoListProps = {
 
 export const RepoList = ({
   reposTotalCount,
+  page,
   userRepos,
   onGetRepos,
   isPendingRepos,
@@ -24,7 +26,7 @@ export const RepoList = ({
     {!isPendingRepos && isReposError && <ErrorList />}
     {!isPendingRepos && !reposTotalCount && <EmptyList />}
     {!isPendingRepos && !!reposTotalCount && (
-      <List {...{ reposTotalCount, onGetRepos, userRepos }} />
+      <List {...{ reposTotalCount, page, onGetRepos, userRepos }} />
     )}
   </>
 );

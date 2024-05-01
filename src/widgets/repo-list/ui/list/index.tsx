@@ -7,11 +7,17 @@ import styles from "./styles.module.scss";
 
 type ListProps = {
   reposTotalCount: number;
+  page: number;
   userRepos: Array<Repo>;
   onGetRepos: (page: number) => void;
 };
 
-export const List = ({ reposTotalCount, onGetRepos, userRepos }: ListProps) => (
+export const List = ({
+  reposTotalCount,
+  page,
+  onGetRepos,
+  userRepos,
+}: ListProps) => (
   <div className={styles.repoList}>
     <h2 className={styles.repoListTitle}>Repositories ({reposTotalCount})</h2>
     <ul className={styles.repoListList}>
@@ -31,7 +37,7 @@ export const List = ({ reposTotalCount, onGetRepos, userRepos }: ListProps) => (
       ))}
     </ul>
     <div className={styles.repoListPagination}>
-      <Pagination {...{ reposTotalCount, onGetRepos }} />
+      <Pagination {...{ reposTotalCount, page, onGetRepos }} />
     </div>
   </div>
 );

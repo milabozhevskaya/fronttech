@@ -8,6 +8,7 @@ import styles from "./styles.module.scss";
 type UserPageProps = {
   user: User;
   reposTotalCount: number;
+  page: number;
   userRepos: Array<Repo>;
   onGetRepos: (page: number) => void;
   isPendingRepos: boolean;
@@ -17,6 +18,7 @@ type UserPageProps = {
 export const UserPage = ({
   user,
   reposTotalCount,
+  page,
   userRepos,
   onGetRepos,
   isPendingRepos,
@@ -28,6 +30,7 @@ export const UserPage = ({
       <RepoList
         {...{
           reposTotalCount,
+          page,
           userRepos,
           onGetRepos,
           isPendingRepos,

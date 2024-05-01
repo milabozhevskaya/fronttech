@@ -32,6 +32,7 @@ type UserContextType<T> = {
   isPendingUser: boolean;
   isUserError: boolean;
   reposTotalCount: number;
+  page: number;
   userRepos: Array<Repo>;
   onGetRepos: (page: number) => void;
   isPendingRepos: boolean;

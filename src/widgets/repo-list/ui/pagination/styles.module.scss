@@ -106,15 +106,16 @@
       cursor: default;
     }
   }
+}
 
-  &_dots {
+.pagination-button-dots {
+  color: $color-gray;
+  background-color: transparent;
+  cursor: default;
+
+  &:hover {
     color: $color-gray;
     background-color: transparent;
     cursor: default;
-
-    &:hover {
-      color: $color-gray;
-      background-color: transparent;
-    }
   }
 }
