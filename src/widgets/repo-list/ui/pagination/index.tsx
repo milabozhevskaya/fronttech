@@ -69,14 +69,14 @@ const Pagination = ({
             })}
         </div>
         <button
-          className={styles.paginationButtonNav}
+          className={`${styles.paginationButtonNav} ${styles.paginationButtonNavRight}`}
           onClick={(): void => {
             setPage(page + 1);
             onGetRepos(page + 1);
           }}
           disabled={page === Math.ceil(reposTotalCount / perPage)}
         >
-          <SVGSelector id="arrow-right" />
+          <SVGSelector id="arrow-left" />
         </button>
       </div>
     </div>

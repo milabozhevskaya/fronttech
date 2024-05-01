@@ -43,6 +43,7 @@
     width: 18px;
     height: 18px;
     stroke-width: 0.2;
+    transform-origin: center center;
   }
 
   &:hover {
@@ -65,6 +66,13 @@
       border-color: transparent;
       border-radius: 3px;
     }
+  }
+}
+
+.pagination-button-nav-right {
+  svg {
+    transform: rotate(180deg);
+    transform-origin: center center;
   }
 }
 

@@ -6,7 +6,6 @@ import Followers from "./followers.source.svg";
 import Following from "./following.source.svg";
 import EmptyList from "./empty-list.source.svg";
 import ArrowLeft from "./arrow-left.source.svg";
-import ArrowRight from "./arrow-right.source.svg";
 
 const SVGSelector = ({ id }: { id: string }) => {
   switch (id) {
@@ -26,8 +25,6 @@ const SVGSelector = ({ id }: { id: string }) => {
       return <EmptyList />;
     case "arrow-left":
       return <ArrowLeft />;
-    case "arrow-right":
-      return <ArrowRight />;
     default:
       return <svg></svg>;
   }
