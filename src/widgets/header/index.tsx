@@ -2,7 +2,7 @@ import { Search } from "@/features/search";
 import { Logo } from "@/shared/ui/logo";
 import { SearchInput } from "@/shared/ui/search-input";
 
-const Header = ({
+export const Header = ({
   search,
   onSearch,
 }: {
@@ -14,5 +14,3 @@ const Header = ({
     <Search as={SearchInput} search={search} onSearch={onSearch} />
   </>
 );
-
-export { Header };

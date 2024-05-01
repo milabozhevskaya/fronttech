@@ -5,10 +5,8 @@ type AvatarProps = {
   alt: string;
 };
 
-const Avatar = ({ src, alt }: AvatarProps) => (
+export const Avatar = ({ src, alt }: AvatarProps) => (
   <div className={styles.avatar}>
     <img src={src} alt={alt} />
   </div>
 );
-
-export { Avatar };

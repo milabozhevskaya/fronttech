@@ -15,7 +15,7 @@ type PageProps = {
   isReposError: boolean;
 };
 
-const Page = ({
+export const Page = ({
   user,
   isPendingUser,
   isUserError,
@@ -47,5 +47,3 @@ const Page = ({
   }
   return <EmptyPage />;
 };
-
-export { Page };

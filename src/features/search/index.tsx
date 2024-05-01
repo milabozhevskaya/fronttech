@@ -1,4 +1,4 @@
-const Search = ({
+export const Search = ({
   as: Component = "input",
   search,
   onSearch,
@@ -15,5 +15,3 @@ const Search = ({
   search: string;
   onSearch: (value: string) => void;
 }) => <Component search={search} onChange={onSearch} />;
-
-export { Search };

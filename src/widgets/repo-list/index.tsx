@@ -12,7 +12,7 @@ type RepoListProps = {
   isReposError: boolean;
 };
 
-const RepoList = ({
+export const RepoList = ({
   reposTotalCount,
   userRepos,
   onGetRepos,
@@ -28,5 +28,3 @@ const RepoList = ({
     )}
   </>
 );
-
-export { RepoList };

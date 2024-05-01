@@ -1,7 +1,7 @@
 import { SVGSelector } from "@/shared/ui/svg";
 import styles from "./styles.module.scss";
 
-const EmptyList = () => (
+export const EmptyList = () => (
   <div className={styles.emptyList}>
     <div className={styles.emptyListIcon}>
       <SVGSelector id="empty-list" />
@@ -9,5 +9,3 @@ const EmptyList = () => (
     <p className={styles.emptyListText}>Repository list is empty</p>
   </div>
 );
-
-export { EmptyList };

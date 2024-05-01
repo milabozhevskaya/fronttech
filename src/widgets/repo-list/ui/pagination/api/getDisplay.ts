@@ -1,4 +1,4 @@
-const getDisplay = (
+export const getDisplay = (
   page: number,
   perPage: number,
   quantity: number
@@ -11,4 +11,3 @@ const getDisplay = (
 
   return `${firstItemOnPage}${lastItemOnPage} of ${quantity}${quantity > 1 ? " items" : " item"}`;
 };
-export { getDisplay };

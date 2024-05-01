@@ -1,4 +1,4 @@
-const useOptionsButtons = (
+export const useOptionsButtons = (
   page: number,
   perPage: number,
   quantity: number,
@@ -36,5 +36,3 @@ const useOptionsButtons = (
       (value > 1 && value < page - 1) || (value > page + 1 && value < maxPage),
   }));
 };
-
-export { useOptionsButtons };

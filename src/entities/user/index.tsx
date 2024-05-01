@@ -12,7 +12,7 @@ type UserInfoProps = {
   following: number;
 };
 
-const UserInfo = ({
+export const UserInfo = ({
   name,
   login,
   avatar_url: avatarURL,
@@ -49,5 +49,3 @@ const UserInfo = ({
     </div>
   </>
 );
-
-export { UserInfo };

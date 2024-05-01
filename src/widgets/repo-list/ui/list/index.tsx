@@ -11,7 +11,7 @@ type ListProps = {
   onGetRepos: (page: number) => void;
 };
 
-const List = ({ reposTotalCount, onGetRepos, userRepos }: ListProps) => (
+export const List = ({ reposTotalCount, onGetRepos, userRepos }: ListProps) => (
   <div className={styles.repoList}>
     <h2 className={styles.repoListTitle}>Repositories ({reposTotalCount})</h2>
     <ul className={styles.repoListList}>
@@ -35,5 +35,3 @@ const List = ({ reposTotalCount, onGetRepos, userRepos }: ListProps) => (
     </div>
   </div>
 );
-
-export { List };

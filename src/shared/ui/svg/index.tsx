@@ -7,7 +7,7 @@ import Following from "./following.source.svg";
 import EmptyList from "./empty-list.source.svg";
 import ArrowLeft from "./arrow-left.source.svg";
 
-const SVGSelector = ({ id }: { id: string }) => {
+export const SVGSelector = ({ id }: { id: string }) => {
   switch (id) {
     case "logo":
       return <Logo />;
@@ -29,5 +29,3 @@ const SVGSelector = ({ id }: { id: string }) => {
       return <svg></svg>;
   }
 };
-
-export { SVGSelector };

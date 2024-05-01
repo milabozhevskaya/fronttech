@@ -9,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import "./styles/styles.scss";
 
-const App = () => {
+export const App = () => {
   const gitHubUser = useGitHubUser();
 
   return (
@@ -22,5 +22,3 @@ const App = () => {
     </UserContext.Provider>
   );
 };
-
-export { App };

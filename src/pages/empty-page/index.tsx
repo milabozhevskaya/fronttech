@@ -2,7 +2,7 @@ import { SVGSelector } from "@/shared/ui/svg";
 
 import styles from "./styles.module.scss";
 
-const EmptyPage = () => (
+export const EmptyPage = () => (
   <div className={styles.emptyPage}>
     <div className={styles.emptyPageIcon}>
       <SVGSelector id="search" />
@@ -12,5 +12,3 @@ const EmptyPage = () => (
     </div>
   </div>
 );
-
-export { EmptyPage };

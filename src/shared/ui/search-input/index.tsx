@@ -3,7 +3,7 @@ import type { ChangeEvent } from "react";
 import styles from "./styles.module.scss";
 import { SVGSelector } from "../svg";
 
-const SearchInput = ({
+export const SearchInput = ({
   search,
   onChange,
 }: {
@@ -29,5 +29,3 @@ const SearchInput = ({
     </div>
   );
 };
-
-export { SearchInput };

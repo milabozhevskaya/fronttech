@@ -1,11 +1,11 @@
 import { SVGSelector } from "@/shared/ui/svg";
 import { useState } from "react";
 import { getDisplay } from "./api/getDisplay";
-import { useOptionsButtons } from "./hooks/pagination";
+import { useOptionsButtons } from "./hooks/useOptionsButtons";
 
 import styles from "./styles.module.scss";
 
-const Pagination = ({
+export const Pagination = ({
   reposTotalCount,
   onGetRepos,
   perPage = 4,
@@ -82,5 +82,3 @@ const Pagination = ({
     </div>
   );
 };
-
-export { Pagination };

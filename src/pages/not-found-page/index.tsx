@@ -2,7 +2,7 @@ import { SVGSelector } from "@/shared/ui/svg";
 
 import styles from "./styles.module.scss";
 
-const NotFoundPage = () => (
+export const NotFoundPage = () => (
   <div className={styles.notFoundPage}>
     <div className={styles.notFoundPageIcon}>
       <SVGSelector id="not-found" />
@@ -10,5 +10,3 @@ const NotFoundPage = () => (
     <div className={styles.notFoundPageText}>User not found</div>
   </div>
 );
-
-export { NotFoundPage };

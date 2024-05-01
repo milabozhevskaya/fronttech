@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from "react";
 
-const Item = ({
+export const Item = ({
   id,
   classNameItem,
   children,
@@ -9,5 +9,3 @@ const Item = ({
     {children}
   </li>
 );
-
-export { Item };

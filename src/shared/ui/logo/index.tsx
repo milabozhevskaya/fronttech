@@ -1,6 +1,6 @@
 import { SVGSelector } from "../svg";
 
-const Logo = () => (
+export const Logo = () => (
   <a
     href="https://www.github.com"
     title="logo"
@@ -10,5 +10,3 @@ const Logo = () => (
     <SVGSelector id="logo" />
   </a>
 );
-
-export { Logo };

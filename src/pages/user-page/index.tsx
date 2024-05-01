@@ -14,7 +14,7 @@ type UserPageProps = {
   isReposError: boolean;
 };
 
-const UserPage = ({
+export const UserPage = ({
   user,
   reposTotalCount,
   userRepos,
@@ -37,5 +37,3 @@ const UserPage = ({
     </div>
   </div>
 );
-
-export { UserPage };

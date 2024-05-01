@@ -20,7 +20,7 @@ type PageProps = {
   isReposError: boolean;
 };
 
-const Layout = ({ children }: { children: ReactNode }) => (
+export const Layout = ({ children }: { children: ReactNode }) => (
   <div className={styles.layout}>{children}</div>
 );
 
@@ -59,5 +59,3 @@ Layout.Main = function Main({
     </main>
   );
 };
-
-export { Layout };

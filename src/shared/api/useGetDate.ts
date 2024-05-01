@@ -3,7 +3,7 @@ import type { Repo, User } from "@/shared/types";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-const useGitHubUser = () => {
+export const useGitHubUser = () => {
   const [search, setSearch] = useState("");
   const [user, setUser] = useState<User | null>(null);
   const [isUserError, setIsUserError] = useState(false);
@@ -92,5 +92,3 @@ const useGitHubUser = () => {
     isReposError,
   };
 };
-
-export { useGitHubUser };
