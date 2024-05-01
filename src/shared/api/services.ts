@@ -3,13 +3,17 @@ import { useMutation } from "@tanstack/react-query";
 import type { Repo, ReposQuery, User, UserQuery } from "../types";
 import { BASE_URL } from "../constants";
 
+const { get } = axios.create({
+  baseURL: `${BASE_URL}/users`,
+  timeout: 1000,
+});
+
 const services = {
-  getUser: async ({ user }: UserQuery) =>
-    axios.get<User>(`${BASE_URL}/users/${user}`),
+  getUser: async ({ user }: UserQuery) => get<User>(`/${user}`),
 
   getRepos: async ({ user, perPage, page }: ReposQuery) =>
-    axios.get<Array<Repo>>(
-      `${BASE_URL}/users/${user}/repos?per_page=${perPage}&page=${page}&type=public`
+    get<Array<Repo>>(
+      `/${user}/repos?per_page=${perPage}&page=${page}&type=public`
     ),
 };
 
