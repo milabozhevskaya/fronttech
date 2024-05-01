@@ -12,30 +12,30 @@
 }
 
 .load-list-icon {
-  width: 66px;
-  height: 66px;
+  width: 36px;
+  height: 36px;
   position: relative;
 
   svg {
     width: 100%;
     height: 100%;
-    fill: $color-gray;
+    fill: $color-white;
     position: absolute;
     top: 0;
     left: 0;
     transform-origin: center center;
     transform: rotate(0deg);
-    animation: loading 1s linear infinite;
+    animation: loadingList 1s linear infinite;
   }
 }
 
 .load-list-text {
   @include font(400, 22px, 140%);
   text-align: center;
-  color: $color-gray;
+  color: $color-white;
 }
 
-@keyframes loading {
+@keyframes loadingList {
   from {
     transform: rotate(0deg);
   }

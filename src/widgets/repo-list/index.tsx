@@ -20,10 +20,10 @@ const RepoList = ({
   isReposError,
 }: RepoListProps) => (
   <>
-    {isReposError && <ErrorList />}
     {isPendingRepos && <LoadList />}
-    {!reposTotalCount && <EmptyList />}
-    {!!reposTotalCount && (
+    {!isPendingRepos && isReposError && <ErrorList />}
+    {!isPendingRepos && !reposTotalCount && <EmptyList />}
+    {!isPendingRepos && !!reposTotalCount && (
       <List {...{ reposTotalCount, onGetRepos, userRepos }} />
     )}
   </>

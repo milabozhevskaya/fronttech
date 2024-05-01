@@ -28,10 +28,10 @@ const Page = ({
   if (isPendingUser) {
     return <LoadingPage />;
   }
-  if (isUserError) {
+  if (!isPendingUser && isUserError) {
     return <NotFoundPage />;
   }
-  if (user) {
+  if (!isPendingUser && user) {
     return (
       <UserPage
         {...{

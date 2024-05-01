@@ -12,18 +12,18 @@
 }
 
 .empty-list-icon {
-  width: 76px;
-  height: 62px;
+  width: 56px;
+  height: 32px;
 
   svg {
     width: 100%;
     height: 100%;
-    fill: $color-gray;
+    fill: $color-white;
   }
 }
 
 .empty-list-text {
   @include font(400, 22px, 140%);
   text-align: center;
-  color: $color-gray;
+  color: $color-white;
 }
