@@ -1,11 +1,19 @@
 const Search = ({
   as: Component = "input",
+  search,
   onSearch,
 }: {
   as:
-    | (({ onChange }: { onChange: (value: string) => void }) => JSX.Element)
+    | (({
+        search,
+        onChange,
+      }: {
+        search: string;
+        onChange: (value: string) => void;
+      }) => JSX.Element)
     | string;
+  search: string;
   onSearch: (value: string) => void;
-}) => <Component onChange={onSearch} />;
+}) => <Component search={search} onChange={onSearch} />;
 
 export { Search };

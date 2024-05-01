@@ -26,9 +26,16 @@ type ReposQuery = {
 };
 
 type UserContextType<T> = {
-  data: T | null;
-  loading: boolean;
-  error?: string;
+  search: string;
+  user: T | null;
+  onGetUser: (value: string) => void;
+  isPendingUser: boolean;
+  isUserError: boolean;
+  reposTotalCount: number;
+  userRepos: Array<Repo>;
+  onGetRepos: (page: number) => void;
+  isPendingRepos: boolean;
+  isReposError: boolean;
 };
 
 type ServicePayload<T> = {

@@ -1,18 +1,23 @@
 import type { ReactNode } from "react";
-import type { User } from "@/shared/types";
+import type { Repo, User } from "@/shared/types";
 
+import { UserContext } from "@/app/context";
 import styles from "./styles.module.scss";
 
 type HeaderProps = {
+  search: string;
   onSearch: (value: string) => void;
 };
 
 type PageProps = {
-  user?: User;
-  userQuery: string;
-  loading: boolean;
-  fetching: boolean;
-  notFound: boolean;
+  user: User | null;
+  isPendingUser: boolean;
+  isUserError: boolean;
+  reposTotalCount: number;
+  userRepos: Array<Repo>;
+  onGetRepos: (page: number) => void;
+  isPendingRepos: boolean;
+  isReposError: boolean;
 };
 
 const Layout = ({ children }: { children: ReactNode }) => (
@@ -21,14 +26,19 @@ const Layout = ({ children }: { children: ReactNode }) => (
 
 Layout.Header = function Header({
   as: Component = "header",
-  ...props
 }: {
   as: (({ ...props }: HeaderProps) => JSX.Element) | string;
-} & HeaderProps) {
+}) {
   return (
     <header className={styles.header}>
       <div className={`${styles.headerContainer} ${styles.container}`}>
-        <Component {...props} />
+        <UserContext.Consumer>
+          {(context) =>
+            context && (
+              <Component search={context.search} onSearch={context.onGetUser} />
+            )
+          }
+        </UserContext.Consumer>
       </div>
     </header>
   );
@@ -36,14 +46,15 @@ Layout.Header = function Header({
 
 Layout.Main = function Main({
   as: Component = "main",
-  ...props
 }: {
   as: (({ ...props }: PageProps) => JSX.Element) | string;
-} & PageProps) {
+}) {
   return (
     <main className={styles.main}>
       <div className={`${styles.mainContainer} ${styles.container}`}>
-        <Component {...props} />
+        <UserContext.Consumer>
+          {(context) => context && <Component {...context} />}
+        </UserContext.Consumer>
       </div>
     </main>
   );

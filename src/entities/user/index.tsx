@@ -1,8 +1,16 @@
 import { Avatar } from "@/shared/ui/avatar";
-import type { User } from "@/shared/types";
 import { SVGSelector } from "@/shared/ui/svg";
 
 import styles from "./styles.module.scss";
+
+type UserInfoProps = {
+  name: string;
+  login: string;
+  avatar_url: string;
+  html_url: string;
+  followers: number;
+  following: number;
+};
 
 const UserInfo = ({
   name,
@@ -11,7 +19,7 @@ const UserInfo = ({
   html_url: htmlURL,
   followers,
   following,
-}: Exclude<User, "publicRepos">) => (
+}: UserInfoProps) => (
   <>
     <Avatar src={avatarURL} alt={name} />
     <div className={styles.userInfoDesc}>

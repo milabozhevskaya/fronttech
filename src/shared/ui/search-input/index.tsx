@@ -3,7 +3,13 @@ import type { ChangeEvent } from "react";
 import styles from "./styles.module.scss";
 import { SVGSelector } from "../svg";
 
-const SearchInput = ({ onChange }: { onChange: (value: string) => void }) => {
+const SearchInput = ({
+  search,
+  onChange,
+}: {
+  search: string;
+  onChange: (value: string) => void;
+}) => {
   const onInput = (e: ChangeEvent<HTMLInputElement>): void => {
     onChange(e.currentTarget.value);
   };
@@ -13,6 +19,7 @@ const SearchInput = ({ onChange }: { onChange: (value: string) => void }) => {
         <SVGSelector id="search" />
       </div>
       <input
+        value={search}
         className={styles.searchInput}
         type="text"
         autoFocus={true}

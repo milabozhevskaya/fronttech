@@ -1,31 +1,32 @@
 import { SVGSelector } from "@/shared/ui/svg";
+import { useState } from "react";
 import { getDisplay } from "./api/getDisplay";
 import { useOptionsButtons } from "./hooks/pagination";
 
 import styles from "./styles.module.scss";
 
 const Pagination = ({
-  page,
-  setPage,
-  quantity,
+  reposTotalCount,
+  onGetRepos,
   perPage = 4,
 }: {
-  page: number;
-  setPage: (value: number) => void;
-  quantity: number;
+  reposTotalCount: number;
+  onGetRepos: (page: number) => void;
   perPage?: number;
 }) => {
-  const options = useOptionsButtons(page, perPage, quantity, 7);
+  const [page, setPage] = useState(1);
+  const options = useOptionsButtons(page, perPage, reposTotalCount, 7);
   return (
     <div className={styles.pagination}>
       <div className={styles.paginationDisplay}>
-        {getDisplay(page, perPage, quantity)}
+        {getDisplay(page, perPage, reposTotalCount)}
       </div>
       <div className={styles.paginationButtons}>
         <button
           className={styles.paginationButtonNav}
           onClick={(): void => {
             setPage(page - 1);
+            onGetRepos(page - 1);
           }}
           disabled={page === 1}
         >
@@ -47,6 +48,7 @@ const Pagination = ({
                     className={styles.paginationButton}
                     onClick={(): void => {
                       setPage(value);
+                      onGetRepos(value);
                     }}
                     disabled={disabled}
                   >
@@ -70,8 +72,9 @@ const Pagination = ({
           className={styles.paginationButtonNav}
           onClick={(): void => {
             setPage(page + 1);
+            onGetRepos(page + 1);
           }}
-          disabled={page === Math.ceil(quantity / perPage)}
+          disabled={page === Math.ceil(reposTotalCount / perPage)}
         >
           <SVGSelector id="arrow-right" />
         </button>

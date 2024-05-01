@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useMutation } from "@tanstack/react-query";
 import type { Repo, ReposQuery, User, UserQuery } from "../types";
 import { BASE_URL } from "../constants";
 
@@ -12,4 +13,8 @@ const services = {
     ),
 };
 
-export { services };
+const useCreateOrGetUser = () => useMutation({ mutationFn: services.getUser });
+const useCreateOrGetRepos = () =>
+  useMutation({ mutationFn: services.getRepos });
+
+export { useCreateOrGetUser, useCreateOrGetRepos };

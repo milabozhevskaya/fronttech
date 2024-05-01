@@ -1,21 +1,38 @@
 import { UserInfo } from "@/entities/user";
 import { RepoList } from "@/widgets/repo-list";
 
-import type { User } from "@/shared/types";
+import type { Repo, User } from "@/shared/types";
 
 import styles from "./styles.module.scss";
 
-type UserPageProps = User & { userQuery: string };
+type UserPageProps = {
+  user: User;
+  reposTotalCount: number;
+  userRepos: Array<Repo>;
+  onGetRepos: (page: number) => void;
+  isPendingRepos: boolean;
+  isReposError: boolean;
+};
 
-const UserPage = ({ ...props }: UserPageProps) => (
+const UserPage = ({
+  user,
+  reposTotalCount,
+  userRepos,
+  onGetRepos,
+  isPendingRepos,
+  isReposError,
+}: UserPageProps) => (
   <div className={styles.userPage}>
-    <div className={styles.userPageAside}>
-      <UserInfo {...props} />
-    </div>
+    <div className={styles.userPageAside}>{user && <UserInfo {...user} />}</div>
     <div className={styles.userPageContent}>
       <RepoList
-        userQuery={props.userQuery}
-        totalCountOfRepos={props.public_repos}
+        {...{
+          reposTotalCount,
+          userRepos,
+          onGetRepos,
+          isPendingRepos,
+          isReposError,
+        }}
       />
     </div>
   </div>
