@@ -1,0 +1,42 @@
+@import "@/shared/styles/env/index.scss";
+
+.repolist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  row-gap: 14px;
+  flex-grow: 1;
+}
+
+.title {
+  @include font(600, 32px, 130%);
+  color: $font-color-black;
+  width: 100%;
+  text-align: left;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  row-gap: 10px;
+  position: relative;
+  flex-grow: 1;
+  margin-bottom: auto;
+}
+
+.item {
+  width: 100%;
+  border-radius: 6px;
+  padding: 24px 32px;
+  background: $background-color-white;
+  position: relative;
+}
+
+.pagination {
+  display: flex;
+  margin-left: auto;
+  text-align: right;
+}

@@ -1,0 +1,45 @@
+@import "@/shared/styles/env/index.scss";
+
+.loadingpage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 210px;
+  margin: 0 auto;
+  row-gap: 26px;
+}
+
+.icon {
+  width: 66px;
+  height: 66px;
+  position: relative;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    fill: $color-gray;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: center center;
+    transform: rotate(0deg);
+    animation: loading 1s linear infinite;
+  }
+}
+
+.text {
+  @include font(400, 22px, 140%);
+  text-align: center;
+  color: $color-gray;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

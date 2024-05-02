@@ -1,0 +1,29 @@
+@import "@/shared/styles/env/index.scss";
+
+.notfoundpage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 210px;
+  margin: 0 auto;
+  row-gap: 26px;
+}
+
+.icon {
+  width: 66px;
+  height: 66px;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    fill: $color-gray;
+  }
+}
+
+.text {
+  @include font(400, 22px, 140%);
+  text-align: center;
+  color: $color-gray;
+}

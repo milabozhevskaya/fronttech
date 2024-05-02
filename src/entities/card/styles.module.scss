@@ -1,0 +1,21 @@
+@import "@/shared/styles/env/index.scss";
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: left;
+  row-gap: 12px;
+}
+
+.name {
+  font-weight: 500;
+  font-size: 24px;
+  color: $font-color-blue;
+  cursor: pointer;
+}
+
+.description {
+  color: $font-color-black;
+  width: 90%;
+}

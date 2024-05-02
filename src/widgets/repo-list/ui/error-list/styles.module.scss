@@ -1,0 +1,29 @@
+@import "@/shared/styles/env/index.scss";
+
+.errorlist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 210px;
+  margin: 0 auto;
+  row-gap: 26px;
+}
+
+.icon {
+  width: 36px;
+  height: 36px;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    fill: $color-white;
+  }
+}
+
+.text {
+  @include font(400, 22px, 140%);
+  text-align: center;
+  color: $color-white;
+}
