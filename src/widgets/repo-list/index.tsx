@@ -1,4 +1,5 @@
 import type { Repo } from "@/shared/types";
+import type { FC } from "react";
 import { List } from "./ui/list";
 import { EmptyList } from "./ui/empty-list";
 import { LoadList } from "./ui/load-list";
@@ -13,14 +14,14 @@ type RepoListProps = {
   isReposError: boolean;
 };
 
-export const RepoList = ({
+export const RepoList: FC<RepoListProps> = ({
   reposTotalCount,
   page,
   userRepos,
   onGetRepos,
   isPendingRepos,
   isReposError,
-}: RepoListProps) => (
+}) => (
   <>
     {isPendingRepos && <LoadList />}
     {!isPendingRepos && isReposError && <ErrorList />}

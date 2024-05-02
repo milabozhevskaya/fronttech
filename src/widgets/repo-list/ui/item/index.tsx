@@ -1,10 +1,8 @@
-import type { PropsWithChildren } from "react";
+import type { FC, PropsWithChildren } from "react";
 
-export const Item = ({
-  id,
-  classNameItem,
-  children,
-}: { id: string; classNameItem?: string } & PropsWithChildren) => (
+type ItemProps = { id: string; classNameItem?: string } & PropsWithChildren;
+
+export const Item: FC<ItemProps> = ({ id, classNameItem, children }) => (
   <li className={classNameItem} key={id}>
     {children}
   </li>

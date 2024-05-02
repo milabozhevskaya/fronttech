@@ -1,19 +1,22 @@
 import { SVGSelector } from "@/shared/ui/svg";
+import type { FC } from "react";
 import { getDisplay } from "./api/getDisplay";
 import { useOptionsButtons } from "./hooks/useOptionsButtons";
 
 import styles from "./styles.module.scss";
 
-export const Pagination = ({
-  reposTotalCount,
-  page,
-  onGetRepos,
-  perPage = 4,
-}: {
+type PaginationProps = {
   reposTotalCount: number;
   page: number;
   onGetRepos: (page: number) => void;
   perPage?: number;
+};
+
+export const Pagination: FC<PaginationProps> = ({
+  reposTotalCount,
+  page,
+  onGetRepos,
+  perPage = 4,
 }) => {
   const options = useOptionsButtons(page, perPage, reposTotalCount, 7);
 

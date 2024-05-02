@@ -3,7 +3,7 @@ export const useOptionsButtons = (
   perPage: number,
   quantity: number,
   buttonQuantity: number = 7
-): Array<{ value: number; disabled: boolean; hidden: boolean }> => {
+) => {
   const maxPage = Math.ceil(quantity / perPage);
   const allButtons = new Array(maxPage)
     .fill(0)

@@ -1,4 +1,5 @@
 import type { Repo, User } from "@/shared/types";
+import type { FC } from "react";
 import { UserPage } from "./user-page";
 import { LoadingPage } from "./loading-page";
 import { NotFoundPage } from "./not-found-page";
@@ -16,7 +17,7 @@ type PageProps = {
   isReposError: boolean;
 };
 
-export const Page = ({
+export const Page: FC<PageProps> = ({
   user,
   isPendingUser,
   isUserError,
@@ -26,7 +27,7 @@ export const Page = ({
   onGetRepos,
   isPendingRepos,
   isReposError,
-}: PageProps) => {
+}) => {
   if (isPendingUser) {
     return <LoadingPage />;
   }

@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { FC, ReactNode } from "react";
 import type { Repo, User } from "@/shared/types";
 
 import { UserContext } from "@/app/context";
@@ -21,14 +21,18 @@ type PageProps = {
   isReposError: boolean;
 };
 
-export const Layout = ({ children }: { children: ReactNode }) => (
+type LayoutProps = { children: ReactNode };
+
+type LayoutHeaderProps = { as?: FC<HeaderProps> | string };
+
+type LayoutMainProps = { as?: FC<PageProps> | string };
+
+export const Layout: FC<LayoutProps> = ({ children }) => (
   <div className={styles.layout}>{children}</div>
 );
 
-Layout.Header = function Header({
+export const LayoutHeader: FC<LayoutHeaderProps> = function Header({
   as: Component = "header",
-}: {
-  as: (({ ...props }: HeaderProps) => JSX.Element) | string;
 }) {
   return (
     <header className={styles.header}>
@@ -45,10 +49,8 @@ Layout.Header = function Header({
   );
 };
 
-Layout.Main = function Main({
+export const LayoutMain: FC<LayoutMainProps> = function Main({
   as: Component = "main",
-}: {
-  as: (({ ...props }: PageProps) => JSX.Element) | string;
 }) {
   return (
     <main className={styles.main}>

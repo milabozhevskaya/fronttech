@@ -1,4 +1,4 @@
-import { Layout } from "@/shared/ui/layout";
+import { Layout, LayoutHeader, LayoutMain } from "@/shared/ui/layout";
 import { Header } from "@/widgets/header";
 import { Page } from "@/pages";
 import { ToastContainer } from "react-toastify";
@@ -15,8 +15,8 @@ export const App = () => {
   return (
     <UserContext.Provider value={{ ...gitHubUser }}>
       <Layout>
-        <Layout.Header as={Header} />
-        <Layout.Main as={Page} />
+        <LayoutHeader as={Header} />
+        <LayoutMain as={Page} />
         <ToastContainer />
       </Layout>
     </UserContext.Provider>

@@ -1,8 +1,9 @@
 import type { Repo } from "@/shared/types";
+import type { FC } from "react";
 
 import styles from "./styles.module.scss";
 
-export const Card = ({ name, description, html_url: htmlURL }: Repo) => (
+export const Card: FC<Repo> = ({ name, description, html_url: htmlURL }) => (
   <div className={styles.card}>
     <a
       href={htmlURL}

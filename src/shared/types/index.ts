@@ -51,7 +51,6 @@ type ServiceQuery<T> = T extends User
   : T extends Array<Repo>
     ? ReposQuery
     : ReposQuery;
-// : Record<string, string>;
 
 export type {
   User,

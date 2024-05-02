@@ -1,3 +1,4 @@
+import type { FC } from "react";
 import Logo from "./logo.source.svg";
 import Search from "./search.source.svg";
 import Loading from "./loading.source.svg";
@@ -7,7 +8,11 @@ import Following from "./following.source.svg";
 import EmptyList from "./empty-list.source.svg";
 import ArrowLeft from "./arrow-left.source.svg";
 
-export const SVGSelector = ({ id }: { id: string }) => {
+type SVGSelectorProps = {
+  id: string;
+};
+
+export const SVGSelector: FC<SVGSelectorProps> = ({ id }) => {
   switch (id) {
     case "logo":
       return <Logo />;

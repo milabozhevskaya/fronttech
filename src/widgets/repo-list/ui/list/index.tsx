@@ -1,4 +1,5 @@
 import { Card } from "@/entities/card";
+import type { FC } from "react";
 import type { Repo } from "@/shared/types";
 import { Item } from "../item";
 import { Pagination } from "../pagination";
@@ -12,12 +13,12 @@ type ListProps = {
   onGetRepos: (page: number) => void;
 };
 
-export const List = ({
+export const List: FC<ListProps> = ({
   reposTotalCount,
   page,
   onGetRepos,
   userRepos,
-}: ListProps) => (
+}) => (
   <div className={styles.repoList}>
     <h2 className={styles.repoListTitle}>Repositories ({reposTotalCount})</h2>
     <ul className={styles.repoListList}>

@@ -2,6 +2,7 @@ import { UserInfo } from "@/entities/user";
 import { RepoList } from "@/widgets/repo-list";
 
 import type { Repo, User } from "@/shared/types";
+import type { FC } from "react";
 
 import styles from "./styles.module.scss";
 
@@ -15,7 +16,7 @@ type UserPageProps = {
   isReposError: boolean;
 };
 
-export const UserPage = ({
+export const UserPage: FC<UserPageProps> = ({
   user,
   reposTotalCount,
   page,
@@ -23,7 +24,7 @@ export const UserPage = ({
   onGetRepos,
   isPendingRepos,
   isReposError,
-}: UserPageProps) => (
+}) => (
   <div className={styles.userPage}>
     <div className={styles.userPageAside}>{user && <UserInfo {...user} />}</div>
     <div className={styles.userPageContent}>

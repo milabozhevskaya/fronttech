@@ -1,3 +1,4 @@
+import type { FC } from "react";
 import styles from "./styles.module.scss";
 
 type AvatarProps = {
@@ -5,7 +6,7 @@ type AvatarProps = {
   alt: string;
 };
 
-export const Avatar = ({ src, alt }: AvatarProps) => (
+export const Avatar: FC<AvatarProps> = ({ src, alt }) => (
   <div className={styles.avatar}>
     <img src={src} alt={alt} />
   </div>

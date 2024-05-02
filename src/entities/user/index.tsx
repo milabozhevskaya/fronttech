@@ -1,5 +1,6 @@
 import { Avatar } from "@/shared/ui/avatar";
 import { SVGSelector } from "@/shared/ui/svg";
+import type { FC } from "react";
 
 import styles from "./styles.module.scss";
 
@@ -12,14 +13,14 @@ type UserInfoProps = {
   following: number;
 };
 
-export const UserInfo = ({
+export const UserInfo: FC<UserInfoProps> = ({
   name,
   login,
   avatar_url: avatarURL,
   html_url: htmlURL,
   followers,
   following,
-}: UserInfoProps) => (
+}) => (
   <>
     <Avatar src={avatarURL} alt={name} />
     <div className={styles.userInfoDesc}>

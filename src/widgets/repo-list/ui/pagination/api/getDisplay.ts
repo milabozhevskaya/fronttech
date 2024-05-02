@@ -1,8 +1,4 @@
-export const getDisplay = (
-  page: number,
-  perPage: number,
-  quantity: number
-): string => {
+export const getDisplay = (page: number, perPage: number, quantity: number) => {
   const firstItemOnPage = page * perPage - (perPage - 1);
   const lastItemOnPage =
     firstItemOnPage === quantity
