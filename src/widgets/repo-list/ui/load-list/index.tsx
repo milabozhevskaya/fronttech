@@ -2,10 +2,10 @@ import { SVGSelector } from "@/shared/ui/svg";
 import styles from "./styles.module.scss";
 
 export const LoadList = () => (
-  <div className={styles.loadList}>
-    <div className={styles.loadListIcon}>
+  <div className={styles.loadlist}>
+    <div className={styles.icon}>
       <SVGSelector id="loading" />
     </div>
-    <p className={styles.loadListText}>Loading..</p>
+    <p className={styles.text}>Loading..</p>
   </div>
 );

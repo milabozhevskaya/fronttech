@@ -10,7 +10,7 @@
   border-radius: 6px;
 }
 
-.search-icon {
+.icon {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,7 +26,7 @@
   }
 }
 
-.search-input {
+.input {
   @include font(400, 14px);
   width: 100%;
   background-color: transparent;

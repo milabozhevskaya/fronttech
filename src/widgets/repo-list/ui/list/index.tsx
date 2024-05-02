@@ -19,14 +19,14 @@ export const List: FC<ListProps> = ({
   onGetRepos,
   userRepos,
 }) => (
-  <div className={styles.repoList}>
-    <h2 className={styles.repoListTitle}>Repositories ({reposTotalCount})</h2>
-    <ul className={styles.repoListList}>
+  <div className={styles.repolist}>
+    <h2 className={styles.title}>Repositories ({reposTotalCount})</h2>
+    <ul className={styles.list}>
       {...userRepos.map((repo) => (
         <Item
           key={repo.id}
           id={repo.id + repo.name}
-          classNameItem={styles.repoListItem}
+          classNameItem={styles.item}
         >
           <Card
             name={repo.name}
@@ -37,7 +37,7 @@ export const List: FC<ListProps> = ({
         </Item>
       ))}
     </ul>
-    <div className={styles.repoListPagination}>
+    <div className={styles.pagination}>
       <Pagination {...{ reposTotalCount, page, onGetRepos }} />
     </div>
   </div>

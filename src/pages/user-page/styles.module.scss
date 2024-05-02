@@ -1,13 +1,13 @@
 @import "@/shared/styles/env/index.scss";
 
-.user-page {
+.userpage {
   display: flex;
   width: 100%;
   column-gap: 26px;
   position: relative;
 }
 
-.user-page-aside {
+.aside {
   display: flex;
   width: 40%;
   max-width: 292px;
@@ -19,14 +19,14 @@
   background-color: transparent;
 }
 
-.user-page-content {
+.content {
   display: flex;
   flex-grow: 1;
   position: relative;
   width: calc(60% - 26px);
 }
 
-.user-page-icon {
+.icon {
   width: 66px;
   height: 66px;
 
@@ -37,7 +37,7 @@
   }
 }
 
-.user-page-text {
+.text {
   text-align: center;
   color: $color-gray;
 }

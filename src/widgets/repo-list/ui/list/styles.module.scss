@@ -1,6 +1,6 @@
 @import "@/shared/styles/env/index.scss";
 
-.repo-list {
+.repolist {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,14 +10,14 @@
   flex-grow: 1;
 }
 
-.repo-list-title {
+.title {
   @include font(600, 32px, 130%);
   color: $font-color-black;
   width: 100%;
   text-align: left;
 }
 
-.repo-list-list {
+.list {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -27,7 +27,7 @@
   margin-bottom: auto;
 }
 
-.repo-list-item {
+.item {
   width: 100%;
   border-radius: 6px;
   padding: 24px 32px;
@@ -35,7 +35,7 @@
   position: relative;
 }
 
-.repo-list-pagination {
+.pagination {
   display: flex;
   margin-left: auto;
   text-align: right;

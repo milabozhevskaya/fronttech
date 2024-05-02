@@ -2,10 +2,10 @@ import { SVGSelector } from "@/shared/ui/svg";
 import styles from "./styles.module.scss";
 
 export const ErrorList = () => (
-  <div className={styles.errorList}>
-    <div className={styles.errorListIcon}>
+  <div className={styles.errorlist}>
+    <div className={styles.icon}>
       <SVGSelector id="not-found" />
     </div>
-    <p className={styles.errorListText}>Loading..</p>
+    <p className={styles.text}>Loading..</p>
   </div>
 );

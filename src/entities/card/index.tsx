@@ -5,14 +5,9 @@ import styles from "./styles.module.scss";
 
 export const Card: FC<Repo> = ({ name, description, html_url: htmlURL }) => (
   <div className={styles.card}>
-    <a
-      href={htmlURL}
-      className={styles.cardName}
-      target="_blank"
-      rel="noreferrer"
-    >
+    <a href={htmlURL} className={styles.name} target="_blank" rel="noreferrer">
       {name}
     </a>
-    <p className={styles.cardDescription}>{description}</p>
+    <p className={styles.description}>{description}</p>
   </div>
 );

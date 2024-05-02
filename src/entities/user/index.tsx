@@ -23,25 +23,25 @@ export const UserInfo: FC<UserInfoProps> = ({
 }) => (
   <>
     <Avatar src={avatarURL} alt={name} />
-    <div className={styles.userInfoDesc}>
-      <h1 className={styles.userInfoName}>{name}</h1>
+    <div className={styles.desc}>
+      <h1 className={styles.name}>{name}</h1>
       <a
         href={htmlURL}
-        className={styles.userInfoLogin}
+        className={styles.login}
         target="_blank"
         rel="noreferrer"
       >
         {login}
       </a>
-      <div className={styles.userInfoStats}>
-        <div className={styles.userInfoStat}>
-          <div className={styles.userInfoIcon}>
+      <div className={styles.stats}>
+        <div className={styles.stat}>
+          <div className={styles.icon}>
             <SVGSelector id="followers" />
           </div>
           {followers} followers{" "}
         </div>
-        <div className={styles.userInfoStat}>
-          <div className={styles.userInfoIcon}>
+        <div className={styles.stat}>
+          <div className={styles.icon}>
             <SVGSelector id="following" />
           </div>
           {following} following{" "}

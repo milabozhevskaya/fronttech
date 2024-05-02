@@ -25,9 +25,9 @@ export const UserPage: FC<UserPageProps> = ({
   isPendingRepos,
   isReposError,
 }) => (
-  <div className={styles.userPage}>
-    <div className={styles.userPageAside}>{user && <UserInfo {...user} />}</div>
-    <div className={styles.userPageContent}>
+  <div className={styles.userpage}>
+    <div className={styles.aside}>{user && <UserInfo {...user} />}</div>
+    <div className={styles.content}>
       <RepoList
         {...{
           reposTotalCount,

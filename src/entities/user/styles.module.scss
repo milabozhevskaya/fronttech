@@ -1,6 +1,6 @@
 @import "@/shared/styles/env/index.scss";
 
-.user-info-desc {
+.desc {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,20 +8,20 @@
   row-gap: 8px;
 }
 
-.user-info-name {
+.name {
   @include font(600, 26px, 130%);
   width: 100%;
   color: $font-color-black;
 }
 
-.user-info-login {
+.login {
   @include font(400, 18px, 150%);
   color: $font-color-blue;
   text-align: left;
   align-self: start;
 }
 
-.user-info-stats {
+.stats {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -29,7 +29,7 @@
   width: 100%;
 }
 
-.user-info-stat {
+.stat {
   color: $font-color-black;
   display: flex;
   align-items: center;
@@ -37,7 +37,7 @@
   user-select: none;
 }
 
-.user-info-icon {
+.icon {
   width: 23px;
   height: 23px;
 

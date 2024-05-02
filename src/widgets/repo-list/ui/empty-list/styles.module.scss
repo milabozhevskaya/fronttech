@@ -1,6 +1,6 @@
 @import "@/shared/styles/env/index.scss";
 
-.empty-list {
+.emptylist {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,7 +11,7 @@
   row-gap: 26px;
 }
 
-.empty-list-icon {
+.icon {
   width: 56px;
   height: 32px;
 
@@ -22,7 +22,7 @@
   }
 }
 
-.empty-list-text {
+.text {
   @include font(400, 22px, 140%);
   text-align: center;
   color: $color-white;

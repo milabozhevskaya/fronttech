@@ -1,6 +1,6 @@
 @import "@/shared/styles/env/index.scss";
 
-.error-list {
+.errorlist {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,7 +11,7 @@
   row-gap: 26px;
 }
 
-.error-list-icon {
+.icon {
   width: 36px;
   height: 36px;
 
@@ -22,7 +22,7 @@
   }
 }
 
-.error-list-text {
+.text {
   @include font(400, 22px, 140%);
   text-align: center;
   color: $color-white;

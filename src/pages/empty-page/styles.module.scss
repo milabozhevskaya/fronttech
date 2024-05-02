@@ -1,6 +1,6 @@
 @import "@/shared/styles/env/index.scss";
 
-.empty-page {
+.emptypage {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,7 +11,7 @@
   row-gap: 26px;
 }
 
-.empty-page-icon {
+.icon {
   width: 66px;
   height: 66px;
 
@@ -22,7 +22,7 @@
   }
 }
 
-.empty-page-text {
+.text {
   @include font(400, 22px, 140%);
   text-align: center;
   color: $color-gray;

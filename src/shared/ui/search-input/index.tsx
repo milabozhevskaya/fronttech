@@ -15,12 +15,12 @@ export const SearchInput: FC<SearchInputProps> = ({ search, onChange }) => {
 
   return (
     <div className={styles.search}>
-      <div className={styles.searchIcon}>
+      <div className={styles.icon}>
         <SVGSelector id="search" />
       </div>
       <input
         value={search}
-        className={styles.searchInput}
+        className={styles.input}
         type="text"
         autoFocus={true}
         placeholder="Enter GitHub username"
