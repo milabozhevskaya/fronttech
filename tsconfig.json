@@ -45,7 +45,7 @@
       "@ioc/*": ["./ioc/*"],
       "@pages/*": ["./pages/*"],
       "@utils/*": ["./utils/*"],
-      "@@/*": ["public/*"]
+      "@@/*": ["./public/*"]
     }
   },
   "include": ["src", "**/*.ts", "**/*.tsx"],
