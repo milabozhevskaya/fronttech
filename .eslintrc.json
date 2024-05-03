@@ -118,8 +118,15 @@
     },
     "import/resolver": {
       "alias": {
-        "map": [["@", "./src"]],
-        "extensions": [".ts", ".tsx", ".json"]
+        "map": [
+          ["@", "./src"],
+          ["@@", "./public/"]
+        ],
+        "extensions": [".ts", ".tsx", ".json", ".svg"]
+      },
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".json", ".svg"],
+        "moduleDirectory": ["node_modules", "public"]
       },
       "typescript": {
         "alwaysTryTypes": true,
