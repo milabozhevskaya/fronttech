@@ -18,7 +18,8 @@
     "babel.config.cjs",
     "commitlint.config.cjs",
     "tsconfig.json",
-    "tsconfig.node.json"
+    "tsconfig.node.json",
+    "vite-env.d.ts"
   ],
 
   "parser": "@typescript-eslint/parser",
