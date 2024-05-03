@@ -6,7 +6,14 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
+    "precommit": "npm run lint",
+    "pret": "prettier . --write --ignore-unknown",
+    "prepare": "husky install",
+    "commit": "git add . && git cz",
+    "commitlint": "commitlint --edit",
+    "commitizen": "exec < /dev/tty && git cz --hook || true",
     "start": "vite preview"
   },
   "dependencies": {
@@ -21,7 +28,8 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-i18next": "^14.1.1",
-    "react-redux": "^9.1.2"
+    "react-redux": "^9.1.2",
+    "vite-tsconfig-paths": "^4.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.24.5",
@@ -52,6 +60,14 @@
     "prettier": "^3.2.5",
     "typescript": "^5.4.5",
     "vite": "^5.2.11"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "resolutions": {
+    "@typescript-eslint/typescript-estree": "^5.59.2"
   },
   "eslintConfig": {
     "extends": [
