@@ -7,7 +7,7 @@
     "skipLibCheck": true,
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
+    // "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -35,7 +35,7 @@
     "rootDir": "./",
     "removeComments": true,
     "sourceMap": true,
-    // "moduleResolution": "node",
+    "moduleResolution": "node",
     "paths": {
       "@/*": ["./*"],
       "@assets/*": ["./assets/*"],
