@@ -5,6 +5,8 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
 import {
   type FC,
@@ -20,7 +22,11 @@ type AuthContextType = {
   currentUser: User | null;
   signup: (email: string, password: string) => Promise<UserCredential>;
   logout: () => Promise<void>;
-  login: (email: string, password: string) => Promise<UserCredential>;
+  loginWithEmailAndPassword: (
+    email: string,
+    password: string
+  ) => Promise<UserCredential>;
+  loginWithGoogle: () => Promise<UserCredential>;
 };
 
 const AuthContext = createContext<AuthContextType | null>(null);
@@ -33,8 +39,13 @@ export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
   const signup = (email: string, password: string) =>
     createUserWithEmailAndPassword(auth, email, password);
 
-  const login = (email: string, password: string) =>
+  const loginWithEmailAndPassword = (email: string, password: string) =>
     signInWithEmailAndPassword(auth, email, password);
+
+  const loginWithGoogle = () => {
+    const provider = new GoogleAuthProvider();
+    return signInWithPopup(auth, provider);
+  };
 
   const logout = () => signOut(auth);
 
@@ -50,7 +61,8 @@ export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
     currentUser,
     signup,
     logout,
-    login,
+    loginWithEmailAndPassword,
+    loginWithGoogle,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
