@@ -68,10 +68,12 @@ export const Login = () => {
         onChange={updatePassword}
       />
       <button onClick={handleSubmit}>
-        <span>Submit</span>
+        <span>{createAccount ? "Sign Up" : "Sign In"}</span>
       </button>
       <button onClick={changeSignUp}>
-        <span>{createAccount ? "Sign In" : "Sign Up"}</span>
+        <span>
+          {createAccount ? "Already have an account" : "Registration"}
+        </span>
       </button>
       <button onClick={handleSubmitWithGoogle}>
         <span>Sign In with Google</span>

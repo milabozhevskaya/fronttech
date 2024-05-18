@@ -11,8 +11,15 @@ export const Layout = () => {
 
   return (
     <div>
-      <p>{currentUser?.displayName}</p>
-      <button onClick={logout}></button>
+      <p>
+        Hello,{" "}
+        {currentUser && currentUser.displayName
+          ? currentUser.displayName
+          : "user"}
+        !
+      </p>
+      <p>You are logged with {currentUser?.email}</p>
+      <button onClick={logout}>Sign Out</button>
     </div>
   );
 };

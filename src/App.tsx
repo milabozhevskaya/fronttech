@@ -14,7 +14,7 @@ export function App() {
 
   return (
     <>
-      <div>app {currentUser ? <Layout /> : <Login />}</div>
+      <div>{currentUser ? <Layout /> : <Login />}</div>
     </>
   );
 }
