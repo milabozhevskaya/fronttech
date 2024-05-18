@@ -1,6 +1,8 @@
 import { type FormEvent, useState, type MouseEvent } from "react";
 import { useAuth } from "@/context/AuthContext";
 
+import styles from "./styles.module.scss";
+
 export const Login = () => {
   const [createAccount, setCreateAccount] = useState(false);
   const [userCreds, setUserCreds] = useState({ email: "", password: "" });
@@ -55,30 +57,33 @@ export const Login = () => {
   };
 
   return (
-    <form>
+    <form className={styles.login}>
       <input
         placeholder="Email"
+        type="email"
         value={userCreds.email}
         onChange={updateEmail}
+        className={styles.input}
       />
       <input
         placeholder="Password"
         type="password"
         value={userCreds.password}
         onChange={updatePassword}
+        className={styles.input}
       />
-      <button onClick={handleSubmit}>
+      <button onClick={handleSubmit} className={styles.submit} type="submit">
         <span>{createAccount ? "Sign Up" : "Sign In"}</span>
       </button>
-      <button onClick={changeSignUp}>
+      <button onClick={changeSignUp} className={styles.change}>
         <span>
           {createAccount ? "Already have an account" : "Registration"}
         </span>
       </button>
-      <button onClick={handleSubmitWithGoogle}>
+      <button onClick={handleSubmitWithGoogle} className={styles.google}>
         <span>Sign In with Google</span>
       </button>
-      {errorMessage && <p>{errorMessage}</p>}
+      {errorMessage && <p className={styles.error}>{errorMessage}</p>}
     </form>
   );
 };

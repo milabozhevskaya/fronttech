@@ -1,0 +1,64 @@
+@import "../../shared/styles/button";
+
+@import "../../shared/styles/input";
+
+.login {
+  width: 98%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 22px 12px;
+  border: 1px solid var(--login-border);
+  border-radius: 5px;
+  box-shadow: 0 0 10px var(--login-shadow);
+  row-gap: 18px;
+
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    border: 1px solid var(--login-border-hover);
+    box-shadow: 0 0 10px var(--login-shadow-hover);
+  }
+}
+
+.input {
+  @include input();
+  text-align: center;
+  width: 100%;
+  max-width: 220px;
+}
+
+.submit {
+  @include button();
+  text-align: center;
+  width: 100%;
+  max-width: 220px;
+}
+
+.change {
+  @include button();
+  background-color: transparent;
+  border: transparent;
+  text-align: center;
+  width: 100%;
+  max-width: 220px;
+
+  &:hover {
+    background-color: transparent;
+    border: transparent;
+  }
+}
+
+.google {
+  @include button();
+  text-align: center;
+  width: 100%;
+  max-width: 220px;
+}
+
+.error {
+  color: var(--error-message-color);
+}

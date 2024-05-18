@@ -1,7 +1,6 @@
-import "./App.css";
 import { useAuth } from "./context/AuthContext";
 import { Layout } from "./components/layout/Layout";
-import { Login } from "./components/widgets/Login";
+import { Login } from "./components/widgets/login/Login";
 
 export function App() {
   const authContent = useAuth();
@@ -14,7 +13,7 @@ export function App() {
 
   return (
     <>
-      <div>{currentUser ? <Layout /> : <Login />}</div>
+      <div className="container">{currentUser ? <Layout /> : <Login />}</div>
     </>
   );
 }

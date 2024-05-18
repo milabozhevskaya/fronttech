@@ -1,5 +1,7 @@
 import { useAuth } from "@/context/AuthContext";
 
+import styles from "./styles.module.scss";
+
 export const Layout = () => {
   const authContent = useAuth();
 
@@ -10,7 +12,7 @@ export const Layout = () => {
   const { logout, currentUser } = authContent;
 
   return (
-    <div>
+    <div className={styles.preview}>
       <p>
         Hello,{" "}
         {currentUser && currentUser.displayName
@@ -19,7 +21,9 @@ export const Layout = () => {
         !
       </p>
       <p>You are logged with {currentUser?.email}</p>
-      <button onClick={logout}>Sign Out</button>
+      <button onClick={logout} className={styles.button}>
+        Sign Out
+      </button>
     </div>
   );
 };

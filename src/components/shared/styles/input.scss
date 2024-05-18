@@ -1,0 +1,28 @@
+@import "./variables.scss";
+
+@mixin input() {
+  color: var(--input-color);
+  border-radius: 8px;
+  border: 2px solid var(--input-border);
+  padding: 6px 10px;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--input-background);
+  cursor: pointer;
+  transition: 0.6s;
+  outline: none;
+
+  ::placeholder {
+    color: var(--input-placeholder-color);
+  }
+
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    color: var(--input-color-focus);
+    background-color: var(--input-background-focus);
+    border-color: var(--input-border-focus);
+    transition: 0.6s;
+  }
+}

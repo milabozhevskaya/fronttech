@@ -1,0 +1,40 @@
+@import "./colors.scss";
+
+:root {
+  //background
+  --background: var(--grey-dark);
+  --background-gradient: var(--grey-green);
+
+  //text
+  --text-color: var(--white-main);
+
+  //button
+  --button-color: var(--white-main);
+  --button-background: var(--black-main);
+  --button-border: transparent;
+
+  --button-color-hover: var(--green-light);
+  --button-border-hover: var(--green-main);
+
+  //input
+  --input-color: var(--white-main);
+  --input-placeholder-color: var(--light-opacity-40);
+  --input-background: transparent;
+  --input-border: var(--grey-light);
+
+  --input-color-focus: var(--green-light);
+  --input-background-focus: var(--black-main);
+  --input-border-focus: var(--green-main);
+
+  //login
+  --login-color: var(--green-main);
+  --login-background: var(--black-main);
+  --login-border: var(--grey-main);
+  --login-shadow: rgba(var(--grey-light), 0.2);
+
+  --login-border-hover: var(--green-main);
+  --login-shadow-hover: rgba(var(--green-main), 0.2);
+
+  //error
+  --error-message-color: var(--red);
+}
