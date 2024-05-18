@@ -18,6 +18,14 @@ export const Login = () => {
     setUserCreds({ ...userCreds, password: e.currentTarget.value });
   };
 
+  const showErrorMessage = (message: string) => {
+    setErrorMessage(message);
+    const timer = setTimeout(() => {
+      setErrorMessage("");
+      clearTimeout(timer);
+    }, 2000);
+  };
+
   const handleSubmit = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
@@ -25,19 +33,18 @@ export const Login = () => {
       return;
     }
 
-    try {
-      if (createAccount) {
-        authContext?.signup(userCreds.email, userCreds.password);
-      } else {
-        authContext?.loginWithEmailAndPassword(
-          userCreds.email,
-          userCreds.password
-        );
-      }
-    } catch (error) {
-      if (error instanceof Error) {
-        setErrorMessage(error.message);
-      }
+    if (createAccount) {
+      authContext
+        ?.signup(userCreds.email, userCreds.password)
+        .catch((error) => {
+          showErrorMessage(error.message);
+        });
+    } else {
+      authContext
+        ?.loginWithEmailAndPassword(userCreds.email, userCreds.password)
+        .catch((error) => {
+          showErrorMessage(error.message);
+        });
     }
   };
 
