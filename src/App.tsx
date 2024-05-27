@@ -1,15 +1,9 @@
-import { useAuth } from "./context/AuthContext";
 import { Layout } from "./components/layout/Layout";
 import { Login } from "./components/widgets/login/Login";
+import { useAppSelector } from "./hooks/redux";
 
 export function App() {
-  const authContent = useAuth();
-
-  if (!authContent) {
-    throw new Error("");
-  }
-
-  const { currentUser } = authContent;
+  const { currentUser } = useAppSelector((state) => state.userReducer);
 
   return (
     <>

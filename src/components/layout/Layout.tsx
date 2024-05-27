@@ -1,15 +1,16 @@
-import { useAuth } from "@/context/AuthContext";
+import { logout } from "@/store/action-creators/user";
+import { useAppDispatch, useAppSelector } from "@/hooks/redux";
 
 import styles from "./styles.module.scss";
 
 export const Layout = () => {
-  const authContent = useAuth();
+  const { currentUser } = useAppSelector((state) => state.userReducer);
 
-  if (!authContent) {
-    return <div>no user</div>;
-  }
+  const dispatch = useAppDispatch();
 
-  const { logout, currentUser } = authContent;
+  const logOut = () => {
+    dispatch(logout());
+  };
 
   return (
     <div className={styles.preview}>
@@ -21,7 +22,7 @@ export const Layout = () => {
         !
       </p>
       <p>You are logged with {currentUser?.email}</p>
-      <button onClick={logout} className={styles.button}>
+      <button onClick={logOut} className={styles.button}>
         Sign Out
       </button>
     </div>

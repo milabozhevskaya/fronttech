@@ -1,14 +1,20 @@
 import { type FormEvent, useState, type MouseEvent } from "react";
-import { useAuth } from "@/context/AuthContext";
+import { useAppDispatch, useAppSelector } from "@/hooks/redux";
+import {
+  signup,
+  loginWithEmailAndPassword,
+  loginWithGoogle,
+} from "@/store/action-creators/user";
 
 import styles from "./styles.module.scss";
 
 export const Login = () => {
   const [createAccount, setCreateAccount] = useState(false);
   const [userCreds, setUserCreds] = useState({ email: "", password: "" });
-  const [errorMessage, setErrorMessage] = useState("");
 
-  const authContext = useAuth();
+  const dispatch = useAppDispatch();
+
+  const { loading, error } = useAppSelector((state) => state.userReducer);
 
   const updateEmail = (e: FormEvent<HTMLInputElement>) => {
     setUserCreds({ ...userCreds, email: e.currentTarget.value });
@@ -16,14 +22,6 @@ export const Login = () => {
 
   const updatePassword = (e: FormEvent<HTMLInputElement>) => {
     setUserCreds({ ...userCreds, password: e.currentTarget.value });
-  };
-
-  const showErrorMessage = (message: string) => {
-    setErrorMessage(message);
-    const timer = setTimeout(() => {
-      setErrorMessage("");
-      clearTimeout(timer);
-    }, 2000);
   };
 
   const handleSubmit = (e: MouseEvent<HTMLButtonElement>) => {
@@ -34,17 +32,16 @@ export const Login = () => {
     }
 
     if (createAccount) {
-      authContext
-        ?.signup(userCreds.email, userCreds.password)
-        .catch((error) => {
-          showErrorMessage(error.message);
-        });
+      dispatch(
+        signup({ email: userCreds.email, password: userCreds.password })
+      );
     } else {
-      authContext
-        ?.loginWithEmailAndPassword(userCreds.email, userCreds.password)
-        .catch((error) => {
-          showErrorMessage(error.message);
-        });
+      dispatch(
+        loginWithEmailAndPassword({
+          email: userCreds.email,
+          password: userCreds.password,
+        })
+      );
     }
   };
 
@@ -54,7 +51,7 @@ export const Login = () => {
     setCreateAccount(false);
     setUserCreds({ email: "", password: "" });
 
-    authContext?.loginWithGoogle();
+    dispatch(loginWithGoogle());
   };
 
   const changeSignUp = (e: MouseEvent<HTMLButtonElement>) => {
@@ -90,7 +87,8 @@ export const Login = () => {
       <button onClick={handleSubmitWithGoogle} className={styles.google}>
         <span>Sign In with Google</span>
       </button>
-      {errorMessage && <p className={styles.error}>{errorMessage}</p>}
+      {error && <p className={styles.error}>{error}</p>}
+      {loading && <p className={styles.loading}>Loading...</p>}
     </form>
   );
 };

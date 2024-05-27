@@ -85,7 +85,13 @@
       "error",
       { "max": 2, "maxBOF": 0, "maxEOF": 1 }
     ],
-    "no-param-reassign": 1,
+    "no-param-reassign": [
+      "error",
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": ["state"]
+      }
+    ],
     "no-plusplus": 0,
     "no-return-assign": 1,
     "no-unused-vars": 0,
