@@ -55,13 +55,7 @@ body {
   position: relative;
   font-family: "Exo 2", sans-serif;
   transition: background-color 0.8s;
-  background: linear-gradient(
-    87deg,
-    transparent,
-    var(--background-gradient) 50%,
-    var(--background-gradient),
-    transparent
-  );
+  background: linear-gradient(87deg, transparent, transparent);
   background-color: var(--background);
   color: var(--text-color);
 }

@@ -1,58 +1,25 @@
-import {
-  GoogleAuthProvider,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  signOut,
-} from "firebase/auth";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { auth } from "../../../firebase";
+import { signOut } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
 
-export const signup = createAsyncThunk(
-  "user/signup",
-  async (
-    { email, password }: { email: string; password: string },
-    thunkAPI
-  ) => {
-    try {
-      const user = await createUserWithEmailAndPassword(auth, email, password);
+import { auth, db } from "../../integrations/firebase/firebase";
+import type { User } from "../reducers/UserSlice";
 
-      return user.user;
-    } catch (error) {
-      return thunkAPI.rejectWithValue("Error signup user");
+export const writeUserInDataBase = createAsyncThunk<
+  void,
+  { user: User },
+  { rejectValue: string }
+>("user/writeUserInDataBase", async ({ user }, { rejectWithValue }) => {
+  try {
+    await setDoc(doc(db, "users", user.uid), user);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      return rejectWithValue(`Error width adding user in database: ${error.message}`);
     }
+
+    return rejectWithValue("Unknown error occurred in writeUserInDataBase");
   }
-);
-
-export const loginWithEmailAndPassword = createAsyncThunk(
-  "user/login",
-  async (
-    { email, password }: { email: string; password: string },
-    thunkAPI
-  ) => {
-    try {
-      const user = await signInWithEmailAndPassword(auth, email, password);
-
-      return user.user;
-    } catch (error) {
-      return thunkAPI.rejectWithValue("Error login user");
-    }
-  }
-);
-
-export const loginWithGoogle = createAsyncThunk(
-  "user/loginWithGoogle",
-  async (_, thunkAPI) => {
-    try {
-      const provider = new GoogleAuthProvider();
-      const user = await signInWithPopup(auth, provider);
-
-      return user.user;
-    } catch (error) {
-      return thunkAPI.rejectWithValue("Error login user");
-    }
-  }
-);
+});
 
 export const logout = createAsyncThunk("user/logout", async (_, thunkAPI) => {
   try {
