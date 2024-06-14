@@ -3,11 +3,11 @@
   "env": { "browser": true, "es2022": true, "node": true },
   "extends": [
     "eslint:recommended",
+    "plugin:import/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/jsx-runtime",
     "plugin:react-hooks/recommended",
     "plugin:react/recommended",
-    "plugin:import/recommended",
     "airbnb-base",
     "airbnb-typescript/base",
     "prettier"
@@ -26,13 +26,89 @@
   "parserOptions": {
     "ecmaVersion": "latest",
     "project": "./tsconfig.json",
-    "sourceType": "module"
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
-  "plugins": ["react", "@typescript-eslint", "import", "react-refresh"],
+  "plugins": [
+    "react",
+    "import",
+    "@typescript-eslint",
+    "react-refresh",
+    "prettier",
+    "react-hooks"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts",
+        "*.tsx",
+        "*.js",
+        "*.jsx",
+        "**/*.test.ts",
+        "**/*.test.tsx",
+        "**/*.spec.ts",
+        "**/*.spec.tsx"
+      ]
+    }
+  ],
   "rules": {
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "pathGroupsExcludedImportTypes": ["react"],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "groups": ["builtin", "external", "parent", "sibling", "index"],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          }
+        ]
+      }
+    ],
+    "consistent-return": "off",
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": "*", "next": "return" },
+      {
+        "blankLine": "always",
+        "prev": ["const", "let", "var"],
+        "next": ["const", "let", "var"]
+      },
+      {
+        "blankLine": "any",
+        "prev": ["const", "let", "var"],
+        "next": ["const", "let", "var"]
+      }
+    ],
+    "no-shadow": "off",
+    "no-magic-numbers": "off",
+    "default-param-last": "off",
+    "react/display-name": "off",
+    "react/require-default-props": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-filename-extension": [1, { "extensions": [".jsx", ".tsx"] }],
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "react/jsx-props-no-spreading": [0, { "html": "ignore" }],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "import/extensions": "off",
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
-
+    "react/prop-types": "off",
     "no-await-in-loop": "error",
     "no-constant-binary-expression": "error",
     "no-duplicate-imports": "error",
@@ -43,7 +119,7 @@
     "no-unmodified-loop-condition": "error",
     "no-unreachable-loop": "error",
     "no-unused-private-class-members": "error",
-    "no-use-before-define": "error",
+    "no-use-before-define": "off",
     "require-atomic-updates": "error",
     "camelcase": "error",
     "@typescript-eslint/adjacent-overload-signatures": "error",
@@ -66,7 +142,7 @@
     "block-spacing": ["warn", "always"],
     "curly": ["warn", "all"],
     "eol-last": "error",
-    "import/prefer-default-export": 0,
+    "import/prefer-default-export": "off",
     "import/no-extraneous-dependencies": "off",
     "import/no-unresolved": "error",
     "max-len": [
@@ -80,21 +156,20 @@
     ],
     "max-lines-per-function": ["error", 180],
     "no-console": 0,
-    "no-debugger": 0,
-    "no-multiple-empty-lines": [
+    "no-debugger": "error",
+    "no-multiple-empty-lines": ["error", { "max": 2, "maxBOF": 0, "maxEOF": 1 }],
+    "no-param-reassign": [
       "error",
-      { "max": 2, "maxBOF": 0, "maxEOF": 1 }
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": ["state", "self"]
+      }
     ],
-    "no-param-reassign": 1,
     "no-plusplus": 0,
     "no-return-assign": 1,
-    "no-unused-vars": 0,
+    "no-unused-vars": "off",
     "object-curly-spacing": ["warn", "always"],
-    "spaced-comment": [
-      "error",
-      "always",
-      { "markers": ["!", "?", "//", "todo", "*"] }
-    ],
+    "spaced-comment": ["error", "always", { "markers": ["!", "?", "//", "todo", "*"] }],
 
     "class-methods-use-this": "off",
     "@typescript-eslint/no-inferrable-types": "off",
@@ -110,23 +185,34 @@
           "parameterProperties": "explicit"
         }
       }
-    ]
+    ],
+    "react-refresh/only-export-components": ["warn", { "allowConstantExport": true }]
   },
   "settings": {
-    "import/parsers": {
-      " @typescript-eslint/parser": [".ts", ".tsx"]
-    },
     "import/resolver": {
       "alias": {
         "map": [
           ["@", "./src"],
-          ["@@", "./public/"]
+          ["@@", "./public/"],
+          ["api", "./src/api"],
+          ["assets", "./src/assets"],
+          ["components", "./src/components"],
+          ["constants", "./src/constants"],
+          ["enums", "./src/enums"],
+          ["hooks", "./src/hooks"],
+          ["pages", "./src/pages"],
+          ["routes", "./src/routes"],
+          ["services", "./src/services"],
+          ["store", "./src/store"],
+          ["styles", "./src/styles"],
+          ["types", "./src/types"],
+          ["utils", "./src/utils"]
         ],
-        "extensions": [".ts", ".tsx", ".json", ".svg"]
+        "extensions": [".ts", ".tsx", ".js", ".jsx", ".json", ".svg"]
       },
       "node": {
         "extensions": [".js", ".jsx", ".ts", ".tsx", ".json", ".svg"],
-        "moduleDirectory": ["node_modules", "public"]
+        "moduleDirectory": ["node_modules", "public", "src/"]
       },
       "typescript": {
         "alwaysTryTypes": true,
